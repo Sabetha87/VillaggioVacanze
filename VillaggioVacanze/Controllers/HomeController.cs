@@ -55,7 +55,14 @@ namespace VillaggioVacanze.Controllers
         }
 
 
-        
+        [Authorize]
+        public IActionResult Prenotami([FromQuery]string param)
+        {
+
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

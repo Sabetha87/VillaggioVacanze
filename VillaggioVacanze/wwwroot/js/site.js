@@ -109,3 +109,32 @@ function LoginUser() {
         }
     });
 };
+
+
+function LogoutUser() {
+    var body = {};
+    $.ajax({
+        method: "POST",
+        url: "/api/User/LogoutUser",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(body),
+        dataType: "json",
+        success: function (response, status) {
+
+          
+            window.location = "/";
+            this.always();
+        },
+        error: function (error, status) {
+            console.log(body);
+            console.log(error);
+            console.log(status);
+            this.always();
+        },
+        always: function () {
+          
+
+        }
+    });
+};
+

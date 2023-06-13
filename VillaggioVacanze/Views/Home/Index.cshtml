@@ -1,4 +1,10 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using VillaggioVacanze.DB.Entities
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
