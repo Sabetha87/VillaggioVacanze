@@ -1,4 +1,4 @@
-﻿--la password dell'admin è Password01!
+--la password dell'admin è Password01!
 
 
 USE [VillaggioVacanze]
