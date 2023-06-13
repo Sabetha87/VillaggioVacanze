@@ -110,7 +110,8 @@ namespace VillaggioVacanze.Controllers
         }
 
         // Logout
-        [Authorize]
+        //[Authorize]
+        [HttpPost("LogoutUser")]
         public async Task<IActionResult> Logout()
         {
             try
