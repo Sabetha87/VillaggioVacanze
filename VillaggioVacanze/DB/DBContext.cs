@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using VillaggioVacanze.DB.Entities;
 
@@ -11,13 +12,10 @@ namespace VillaggioVacanze.DB
         public DBContext(DbContextOptions<DBContext> options)
            : base(options)
         {
-
-
-
         }
 
+        public DbSet<Attrazioni> Attrazionis { get; set; }
 
-        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

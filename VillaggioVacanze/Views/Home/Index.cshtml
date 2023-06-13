@@ -2,7 +2,102 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div id="demo" class="carousel slide col-12" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Immagini/villaggio-vacanze1.jpg" alt="Los Angeles" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Villaggio Vacanze</h1>
+                        <i>Vivi il tuo viaggio!</i>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Immagini/villaggio-vacanze2.jpg" alt="Chicago" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Villaggio Vacanze</h1>
+                        <i>Vivi il tuo viaggio!</i>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="Immagini/villaggio-vacanze3.jpg" alt="New York" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Villaggio Vacanze</h1>
+                        <i>Vivi il tuo viaggio!</i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+
+    <!-- Cards -->
+    <div class="row mt-5">
+
+        <div class="col-4">
+
+            <div class="card img-fluid" style="width:500px">
+                <img class="card-img-top" src="Immagini/villaggio-vacanze1.jpg" alt="Card image" style="width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
+                    <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+
+            <div class="card img-fluid" style="width:500px">
+                <img class="card-img-top" src="Immagini/villaggio-vacanze2.jpg" alt="Card image" style="width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
+                    <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+
+            <div class="card img-fluid" style="width:500px">
+                <img class="card-img-top" src="Immagini/villaggio-vacanze3.jpg" alt="Card image" style="width:100%">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">John Doe</h4>
+                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
+                    <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
 </div>
