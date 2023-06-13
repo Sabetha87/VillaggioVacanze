@@ -148,14 +148,13 @@
 
                 }
 
+
+               
+
                 @*Logout*@
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    @*<button type="button" class="btn btn-default active" onclick="location.href='@Url.Action("Index", "Financial")'">Financial</button>
-                    <button class="btn btn-default" onclick="location.href='/KsDashboard/Financial/123'" type="button">Financial</button>
-
-*@
-
+                  
                     <button type="button" class="btn btn-primary" onclick="LogoutUser()">
                         Logout
                     </button>

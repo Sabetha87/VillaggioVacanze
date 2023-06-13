@@ -84,7 +84,7 @@ namespace VillaggioVacanze.Controllers
                 User user = await userManager.FindByNameAsync(loginModel.UserName);
                 if (user != null)
                 {
-                    var result = await signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password, false, lockoutOnFailure: true);
+                    var result = await signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password, true, lockoutOnFailure: true);
                     if (result.Succeeded)
                     {
                         return Json("OK");
@@ -133,5 +133,11 @@ namespace VillaggioVacanze.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
+        
+
+
     }
 }
