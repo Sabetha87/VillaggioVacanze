@@ -1,11 +1,16 @@
-﻿namespace VillaggioVacanze.Models
+﻿using System.Collections.Generic;
+using System;
+using VillaggioVacanze.DB.Entities;
+
+namespace VillaggioVacanze.Models
 {
     public class AttrazioneModel
     {
+        public string IdAttrazione { get; set; }
+
+        public string Titolo { get; set; }
         public string Descrizione { get; set; }
-        public int NPosti { get; set; }
-        public bool Attiva { get; set; }
-        public decimal PrezzoUnitario { get; set; }
-        public string Titolo{ get;set; }
+
+        public List<CrossAttrazionePeriodo> AttrazioniPeriodi { get; set; }
     }
 }

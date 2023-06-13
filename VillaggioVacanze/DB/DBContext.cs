@@ -14,7 +14,10 @@ namespace VillaggioVacanze.DB
         {
         }
 
-        public DbSet<Attrazioni> Attrazionis { get; set; }
+        public DbSet<Attrazione> Attrazioni { get; set; }
+
+        public DbSet<CrossAttrazionePeriodo> CrossAttrazioniPeriodi { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)

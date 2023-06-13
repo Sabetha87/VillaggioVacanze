@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using VillaggioVacanze.DB;
 using VillaggioVacanze.DB.Entities;
+using VillaggioVacanze.Services;
 
 namespace VillaggioVacanze
 {
@@ -35,6 +36,7 @@ namespace VillaggioVacanze
             services.AddScoped<SignInManager<User>>();
             services.AddScoped<UserManager<User>>();
             services.AddScoped<RoleManager<IdentityRole>>();
+            services.AddScoped<AttrazioneService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

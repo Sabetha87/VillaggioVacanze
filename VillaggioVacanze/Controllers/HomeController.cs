@@ -2,15 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using VillaggioVacanze.DB;
 using VillaggioVacanze.DB.Entities;
 using VillaggioVacanze.Models;
-
+using VillaggioVacanze.Services;
 
 namespace VillaggioVacanze.Controllers
 {
@@ -19,21 +15,30 @@ namespace VillaggioVacanze.Controllers
         private readonly ILogger<HomeController> logger;
         private SignInManager<User> signInManager;
         private UserManager<User> userManager;
-       
+        private AttrazioneService attrazioneService;
+
 
 
         public HomeController(SignInManager<User> signInManager,
-           UserManager<User> userManager)
+           UserManager<User> userManager,
+           AttrazioneService attrazioneService)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
-          
+            this.attrazioneService = attrazioneService;
+
 
         }
 
+
+
+
         public IActionResult Index()
         {
-            return View();
+            List<AttrazioneModel> attrazioni = this.attrazioneService.GetAttrazioni();
+
+
+            return View(attrazioni);
         }
 
         public IActionResult Login()
@@ -56,7 +61,7 @@ namespace VillaggioVacanze.Controllers
 
 
         [Authorize]
-        public IActionResult Prenotami([FromQuery]string param)
+        public IActionResult Prenotami([FromQuery] string param)
         {
 
             return View();

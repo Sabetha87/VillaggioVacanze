@@ -8,8 +8,8 @@ using VillaggioVacanze.DB.Entities;
 
 namespace VillaggioVacanze.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class AttrazioneController : Controller
     {
         private readonly AttrazioneService attrazioneService;
@@ -19,24 +19,24 @@ namespace VillaggioVacanze.Controllers
             this.attrazioneService = attrazioneService;
         }
 
-        [HttpPost("GetViaggi")]
-        public async Task<IActionResult> GetViaggi()
-        {
+        //[HttpPost("GetViaggi")]
+        //public async Task<IActionResult> GetViaggi()
+        //{
 
-            List<Attrazioni> attrazioni= this.attrazioneService.GetAttrazioni();
-            List<AttrazioneModel> model = new List<AttrazioneModel>();
-            foreach (Attrazioni p in attrazioni)
-                model.Add(new AttrazioneModel()
-                {
-                    Descrizione = p.Descrizione,   //ambiare in stringhe tutto 
-                    NPosti = p.NPosti,
-                    Attiva = p.Attiva,
-                    PrezzoUnitario = p.PrezzoUnitario,
-                    Titolo = p.Titolo
-                });
+        //    List<Attrazione> attrazioni= this.attrazioneService.GetAttrazioni();
+        //    List<AttrazioneModel> model = new List<AttrazioneModel>();
+        //    foreach (Attrazione p in attrazioni)
+        //        model.Add(new AttrazioneModel()
+        //        {
+        //            Descrizione = p.Descrizione,   //ambiare in stringhe tutto 
+        //            NPosti = p.NPosti,
+        //            Attiva = p.Attiva,
+        //            PrezzoUnitario = p.PrezzoUnitario,
+        //            Titolo = p.Titolo
+        //        });
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
     }
 }

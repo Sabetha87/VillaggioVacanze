@@ -1,13 +1,25 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@*@using Microsoft.AspNetCore.Identity
 @using VillaggioVacanze.DB.Entities
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
 
+@model List<VillaggioVacanze.Models.AttrazioneModel> 
+
 
 @{
     ViewData["Title"] = "Home Page";
+}*@
+@{
+    ViewData["Title"] = "Home";
 }
+@using Microsoft.AspNetCore.Identity
+@using VillaggioVacanze.DB.Entities
+@using System.Collections.Generic;
 
+@inject VillaggioVacanze.DB.DBContext dbContext
+
+
+@model List<VillaggioVacanze.Models.AttrazioneModel>
 
 <div class="container-fluid">
 
@@ -68,40 +80,28 @@
     <!-- Cards -->
     <div class="row mt-5">
 
-        <div class="col-4">
 
-            <div class="card img-fluid" style="width:500px">
-                <img class="card-img-top" src="Immagini/villaggio-vacanze1.jpg" alt="Card image" style="width:100%">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
-                    <a href="#" class="btn btn-primary">See Profile</a>
+
+        @for(int i = 0; i<Model.Count; i++)
+        {
+           @* <div class="col-4">*@
+            <div class="col-sm-10 offset-sm-1 col-md-4 offset-md-0">
+                @*<div class="card img-fluid" style="width:500px">*@
+                    <div class="card">
+                    <img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo}" style="width:100%">
+                   @* <div class="card-img-overlay">*@
+                    <div class="card-body">
+                        <h4 class="card-title">@Model[i].Titolo</h4>
+                        <p class="card-text">a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo)</p>
+                        <p class="card-text">@Model[i].Descrizione</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-4">
+        }
 
-            <div class="card img-fluid" style="width:500px">
-                <img class="card-img-top" src="Immagini/villaggio-vacanze2.jpg" alt="Card image" style="width:100%">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
-                    <a href="#" class="btn btn-primary">See Profile</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-
-            <div class="card img-fluid" style="width:500px">
-                <img class="card-img-top" src="Immagini/villaggio-vacanze3.jpg" alt="Card image" style="width:100%">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
-                    <a href="#" class="btn btn-primary">See Profile</a>
-                </div>
-            </div>
-        </div>
-
+            
+       
 
 
     </div>
