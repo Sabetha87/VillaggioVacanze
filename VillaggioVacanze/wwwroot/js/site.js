@@ -113,8 +113,6 @@ function LoginUser() {
 
 function LogoutUser() {
     var body = {};
-    //body.UserName = document.querySelector("#LoginUserName").value;
-    //body.Password = document.querySelector("#LoginPassword").value;
     $.ajax({
         method: "POST",
         url: "/api/User/LogoutUser",
@@ -122,35 +120,9 @@ function LogoutUser() {
         data: JSON.stringify(body),
         dataType: "json",
         success: function (response, status) {
-            textP = document.createElement("p");
-            textP.style.textAlign = "center";
-            textP.innerText = response;
-            if (response == "OK") {
-                document.getElementById("LoginUserModalResult").innerHTML = `
-                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                        <strong>Benvenuto al Villaggio Vacanze!</strong>
-                        <p>Sei stato loggato con successo.</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-            `;
-                window.location.reload();
-            }
-            else {
-                document.getElementById("LoginUserModalResult").innerHTML = `
-                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                        <strong>Login fallita :(</strong>
-                        <p>${response}</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-            `;
 
-            }
-
-
+          
+            window.location = "/";
             this.always();
         },
         error: function (error, status) {
@@ -160,8 +132,7 @@ function LogoutUser() {
             this.always();
         },
         always: function () {
-            document.getElementById("LoginUserForm").reset();
-
+          
 
         }
     });

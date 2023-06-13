@@ -110,7 +110,7 @@ namespace VillaggioVacanze.Controllers
         }
 
         // Logout
-        //[Authorize]
+        [Authorize]
         [HttpPost("LogoutUser")]
         public async Task<IActionResult> Logout()
         {
@@ -124,7 +124,7 @@ namespace VillaggioVacanze.Controllers
             catch (Exception ex)
             {
             }
-            return Redirect("Login");
+            return Json("OK");
         }
 
 
