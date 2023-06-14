@@ -34,6 +34,9 @@ html {
     font-size: 16px;
   }
 }
+body {
+    background-color: #ffeef9;
+}
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -82,6 +85,9 @@ body {
     padding-left: 0px;
 }
 
+body {
+padding:0px;
+}
 
 
 .item {
@@ -98,13 +104,13 @@ body {
 .TitleCarousel {
     font-size: 80px;
     font-family: 'Lucida Handwriting';
-    text-shadow: 2px 2px 5px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black,  10px 10px 30px black, 20px 20px 30px black;
 }
 
 .SubTitleCarousel {
     font-size: 30px;
-    font-family: ' Brush Script MT';
-    text-shadow: 2px 2px 5px black;
+    font-family: 'Lucida Handwriting';
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 10px 10px 30px black, 20px 20px 30px black;
 }
 
 .TitoliSezioni {
@@ -146,6 +152,107 @@ body {
     margin-top: 10px;
 }
 
+
+.navbar {
+    background: #e0e0e0;
+}
+
 .footer {
     background: #e0e0e0;
+}
+
+
+#cardPersona1 {
+    border: 5px solid #61b9d9;
+    border-radius: 0px 10px 50px 10px;
+}
+
+#cardPersona1Body {
+    border-radius: 0px 10px 50px 10px;
+    
+}
+
+#cardPersona2 {
+    border: 5px solid #61b9d9;
+    border-radius: 50px 0px 0px 50px;
+}
+
+#cardPersona2Body {
+    border-radius: 50px 0px 0px 50px;
+    padding-left: 0px;
+}
+
+#cardPersona3 {
+    border: 5px solid #61b9d9;
+    border-radius: 0px 50px 10px 0px;
+}
+
+#cardPersona3Body {
+    border-radius: 00px 50px 10px 0px;
+}
+
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+
+    .reveal.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+
+
+.card-img-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+    .card-img-wrap:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,0.3);
+        opacity: 0;
+        transition: opacity .25s;
+    }
+
+    .card-img-wrap img {
+        transition: transform .25s;
+        width: 100%;
+    }
+
+.card-img-wrap:hover img {
+    transform: scale(1.2);
+}
+
+.card-img-wrap:hover:after {
+    opacity: 1;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+footerClassA {
+    text-decoration: none;
+    color: #555;
+}
+
+    footerClassA + footerClassA {
+        margin-left: 10px;
+    }
+
+footer {
+    background-color: #eee;
+
 }
