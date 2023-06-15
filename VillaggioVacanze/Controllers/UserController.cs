@@ -50,7 +50,9 @@ namespace VillaggioVacanze.Controllers
                         user = new User
                         {
                             UserName = userModel.UserName,
-                            Email = userModel.Email
+                            Email = userModel.Email,
+                            FirstName = userModel.FirstName,
+                            LastName = userModel.LastName
                         };
 
                         IdentityResult result = await this.userManager.CreateAsync(user, userModel.Password);

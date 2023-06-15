@@ -46,6 +46,10 @@ namespace VillaggioVacanze.Controllers
             return View();
         }
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
 
         [Authorize]
         public IActionResult UserPage()

@@ -28,9 +28,9 @@ function reveal() {
 
 
 window.onload = (event) => {
-    setTimeout(function () {
+    
         document.querySelectorAll(".reveal")[0].classList.add("active");
-    }, 2000);
+
     
 }
 window.addEventListener("scroll", reveal);

@@ -35,7 +35,7 @@ html {
   }
 }
 body {
-    background-color: #ffeef9;
+    background-color: #d4ebf2;
 }
 
 .border-top {
@@ -113,8 +113,11 @@ padding:0px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 10px 10px 30px black, 20px 20px 30px black;
 }
 
+/*Titoli sezioni*/
+
 .TitoliSezioni {
     font-family: ' Brush Script MT';
+    font-weight: 500;
 }
 
 
@@ -124,6 +127,7 @@ padding:0px;
     z-index: 1;
     overflow: hidden;
     text-align: center;
+    
 }
 
     .TitoliSezioni:before, .TitoliSezioni:after {
@@ -146,7 +150,11 @@ padding:0px;
     }
 
 
-
+/*Card viaggi*/
+.cardViaggi {
+    border: 3px solid #0C223F;
+    border-radius: 10px 10px 10px 10px;
+}
 
 .containerCards {
     margin-top: 10px;
@@ -154,16 +162,16 @@ padding:0px;
 
 
 .navbar {
-    background: #eee;
+    background: #0C223F;
 }
 
 .footer {
-    background: #eee;
+    background: #0C223F;
 }
 
-
+/*Card persone*/
 #cardPersona1 {
-    border: 5px solid #61b9d9;
+    border: 3px solid #0C223F;
     border-radius: 0px 10px 50px 10px;
 }
 
@@ -173,7 +181,7 @@ padding:0px;
 }
 
 #cardPersona2 {
-    border: 5px solid #61b9d9;
+    border: 3px solid #0C223F;
     border-radius: 50px 0px 0px 50px;
 }
 
@@ -183,7 +191,7 @@ padding:0px;
 }
 
 #cardPersona3 {
-    border: 5px solid #61b9d9;
+    border: 3px solid #0C223F;
     border-radius: 0px 50px 10px 0px;
 }
 
@@ -277,7 +285,7 @@ body {
 }
 
 
-/**/
+/* recensioni */
 
 * {
     margin: 0;
@@ -293,7 +301,7 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: #090921;
+    background-color: #0C223F;
 }
 
 .h2Recensioni {
@@ -401,3 +409,5 @@ article p {
         justify-content: center;
     }
 }
+
+

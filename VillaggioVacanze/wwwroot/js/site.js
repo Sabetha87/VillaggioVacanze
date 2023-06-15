@@ -4,6 +4,7 @@
     body.Email = document.querySelector("#Email").value;
     body.Password = document.querySelector("#Password").value;
     body.ConfirmPassword = document.querySelector("#ConfirmPassword").value;
+
     $.ajax({
         method: "POST",
         url: "/api/User/CreateUser",
