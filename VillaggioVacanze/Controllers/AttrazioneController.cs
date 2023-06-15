@@ -19,23 +19,10 @@ namespace VillaggioVacanze.Controllers
             this.attrazioneService = attrazioneService;
         }
 
-        //[HttpPost("GetViaggi")]
-        //public async Task<IActionResult> GetViaggi()
+        //[HttpGet("Get")]
+        //public async Task<Prenotazione> Get()
         //{
-
-        //    List<Attrazione> attrazioni= this.attrazioneService.GetAttrazioni();
-        //    List<AttrazioneModel> model = new List<AttrazioneModel>();
-        //    foreach (Attrazione p in attrazioni)
-        //        model.Add(new AttrazioneModel()
-        //        {
-        //            Descrizione = p.Descrizione,   //ambiare in stringhe tutto 
-        //            NPosti = p.NPosti,
-        //            Attiva = p.Attiva,
-        //            PrezzoUnitario = p.PrezzoUnitario,
-        //            Titolo = p.Titolo
-        //        });
-
-        //    return View(model);
+           
         //}
 
     }

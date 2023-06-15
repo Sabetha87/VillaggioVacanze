@@ -79,6 +79,7 @@ function LoginUser() {
                         </button>
                     </div>
             `;
+                
                 window.location.reload();
             }
             else {

@@ -102,7 +102,7 @@ padding:0px;
 }
 
 .TitleCarousel {
-    font-size: 80px;
+    font-size: 70px;
     font-family: 'Lucida Handwriting';
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black,  10px 10px 30px black, 20px 20px 30px black;
 }
@@ -123,7 +123,7 @@ padding:0px;
 
 .TitoliSezioni {
     position: relative;
-    font-size: 30px;
+    font-size: 35px;
     z-index: 1;
     overflow: hidden;
     text-align: center;
@@ -266,15 +266,16 @@ padding:0px;
 }
 
 .table-responsive {
-    height: 525px;
+
     overflow: scroll;
 }
 
+
 thead tr:nth-child(1) th {
-    background: white;
     position: sticky;
     top: 0;
     z-index: 10;
+    background:blue;
 }
 body {
     overflow-x: hidden;
