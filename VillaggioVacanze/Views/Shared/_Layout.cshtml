@@ -30,7 +30,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light" >
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,13 +38,13 @@
                 <ul class="navbar-nav mr-auto">
                     @*Home*@
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         
                     </li>
                     <li class="nav-item">
                     @if (!SignInManager.IsSignedIn(User))
                     {
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Prenotami">Prenotami</a>
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Prenotami">Prenotami</a>
                     }
                     </li>
                 </ul>
@@ -201,14 +201,14 @@
     <footer class="border-top footer text-muted">
         
         <section>
-        <a class="footerClassA pl-5">
+        <a class="footerClassA pl-5" style="color:white;">
            
             &copy; 2023 - VillaggioVacanze -  All Rights Reserved. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
         </a>
         </section>
         <section>
-            <a class="footerClassA">Follow us </a>
+            <a class="footerClassA" style="color:white;">Follow us </a>
             <a class="footerClassA material-symbols-outlined" href="https://www.google.com/maps">
                 
                     public

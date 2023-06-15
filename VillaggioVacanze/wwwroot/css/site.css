@@ -246,24 +246,20 @@ padding:0px;
 
 
 
-footer {
+.footer {
     display: flex;
     justify-content: space-between;
 }
 
-footerClassA {
+.footerClassA {
     text-decoration: none;
-    color: #555;
+    color: white;
 }
 
     footerClassA + footerClassA {
         margin-left: 10px;
     }
 
-footer {
-    background-color: #eee;
-
-}
 
 .card:hover {
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
