@@ -1,19 +1,12 @@
-﻿@*@using Microsoft.AspNetCore.Identity
-@using VillaggioVacanze.DB.Entities
-@inject UserManager<User> UserManager
-@inject SignInManager<User> SignInManager
-
-@model List<VillaggioVacanze.Models.AttrazioneModel>
-
-
-@{
-    ViewData["Title"] = "Home Page";
-}*@
-@{
+﻿@{
 	ViewData["Title"] = "Home";
 }
 @using Microsoft.AspNetCore.Identity
 @using VillaggioVacanze.DB.Entities
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+
 @using System.Collections.Generic;
 
 @inject VillaggioVacanze.DB.DBContext dbContext
@@ -81,12 +74,20 @@
 						<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
 							Dettagli
 						</a>
+
+						@if (SignInManager.IsSignedIn(User))
+						{
+							<a class="float-right btn btn-primary mt-3 mb-3 full-width">
+								Prenota
+							</a>
+						}
+
+						
+                            
+						
 					</div>
 					<div id="T@(Model[i].IdAttrazione)" class="collapse">
 						<p class="card-text p-2">@Model[i].Descrizione</p>
-						<a class="btn btn-primary mb-3 ml-3">
-							Prenota
-						</a>
 					</div>
 				</div>
 			</div>

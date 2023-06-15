@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,6 +9,12 @@ namespace VillaggioVacanze.DB.Entities
 {
     public class CrossAttrazionePeriodo
     {
+        public CrossAttrazionePeriodo()
+        {
+            Prenotazioni = new List<Prenotazione>() { };
+        }
+
+
         [Key]
         public Guid Id { get; set; }
 
@@ -21,6 +28,8 @@ namespace VillaggioVacanze.DB.Entities
 
         [ForeignKey(nameof(IdAttrazione))]
         public Attrazione IdAttrazioneNavigation { get; set; }
+
+        public List<Prenotazione> Prenotazioni { get; set;}
 
 
 

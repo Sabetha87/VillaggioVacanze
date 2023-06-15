@@ -16,6 +16,8 @@ namespace VillaggioVacanze.DB
 
         public DbSet<Attrazione> Attrazioni { get; set; }
 
+        public DbSet<Prenotazione> Prenotazioni { get; set; }
+
         public DbSet<CrossAttrazionePeriodo> CrossAttrazioniPeriodi { get; set; }
 
 

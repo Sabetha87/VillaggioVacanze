@@ -70,8 +70,10 @@ namespace VillaggioVacanze.Controllers
             }
             catch (Exception ex)
             {
+               
                 logger.LogError(ex, ex.Message);
             }
+
             return Json("Richiesta non valida.");
         }
 

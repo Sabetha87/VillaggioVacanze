@@ -1,0 +1,75 @@
+﻿
+@{
+	ViewData["Title"] = "Prenotazioni";
+}
+@using Microsoft.AspNetCore.Identity
+@using VillaggioVacanze.DB.Entities
+@using System.Collections.Generic;
+
+@inject VillaggioVacanze.DB.DBContext dbContext
+
+@model List<PrenotazioneModel>
+
+
+<h1 class="mt-4 mb-4">@ViewData["Title"]</h1>
+
+
+<div class="table-responsive text-nowrap">
+    <!--Table-->
+    <table class="table table-hover table-light">
+
+        <!--Table head-->
+        <thead style="position: sticky;" bgcolor="light-blue">
+            <tr>
+                <th>#</th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th>Cognome</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                }
+                <th>Viaggio</th>
+                <th>Da</th>
+                <th>A</th>
+                <th>Data della prenotazione</th>
+                @*<th>Data modifica</th>*@
+                <th>Numero posti prenotati</th>
+                <th>Numero posti rimamenti</th>
+                <th>Prezzo unitario</th>
+               @* <th> </th>*@
+                
+            </tr>
+        </thead>
+
+        <!--Table body-->
+        <tbody>
+
+            @for(int i =0; i < Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@(i+1)</th>
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <td>@(Model[i].IdUserNavigation.LastName)</td>
+                    <td>@(Model[i].IdUserNavigation.FirstName)</td>
+                    <td>@(Model[i].IdUserNavigation.Email)</td>
+                    }
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.IdAttrazioneNavigation.Titolo)</td>
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.fromData.Date.ToString("yyyy-MM-dd"))</td>
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.toData.Date.ToString("yyyy-MM-dd"))</td>
+                    <td>@(Model[i].CreatedAt)</td>
+                    @*<td>@(Model[i].DataModifica)</td>*@
+                    <td>@(Model[i].NumPostiPrenotati)</td>
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
+                 
+                    @*<td><input type="image" src="~/Immagini/Matita.jpg" style="width:23px;" onclick=""> <input type="image" style="width:23px;" src="~/Immagini/Cestino.jpg" onclick=""> </td>*@
+                </tr>
+            }
+            
+
+        </tbody>
+
+    </table>
+
+</div>

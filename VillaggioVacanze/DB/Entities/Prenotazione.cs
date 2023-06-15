@@ -12,19 +12,19 @@ namespace VillaggioVacanze.DB.Entities
 	{
 
 		[Key]
-		public Guid IdPrenotazioni { get; set; }
-	    public Guid IdUtente { get; set; }
-        public Guid IdAttrazione { get; set; }
-        public DateTime DataPrenotazione { get; set; }
-        public DateTime DataModifica { get; set; }
-        public bool Attiva { get; set; }
+		public Guid Id{ get; set; }
+	    public string IdUtente { get; set; }
+        public Guid IdCrossAttrazionePeriodo { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public bool? Attiva { get; set; }
         public int NumPostiPrenotati { get; set; }
 
         [ForeignKey(nameof(IdUtente))]
         public User IdUserNavigation { get; set; }
 
-        [ForeignKey(nameof(IdAttrazione))]
-        public User IdAttrazioneNavigation { get; set; }
+        [ForeignKey(nameof(IdCrossAttrazionePeriodo))]
+        public CrossAttrazionePeriodo IdCrossAttrazionePeriodoNavigation { get; set; }
 
 
     }

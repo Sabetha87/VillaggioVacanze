@@ -10,7 +10,7 @@ namespace VillaggioVacanze.DB.Entities
     {
         public Attrazione()
         {
-            List<CrossAttrazionePeriodo> AttrazioniPeriodi = new List<CrossAttrazionePeriodo>();
+           CrossAttrazioniPeriodi = new List<CrossAttrazionePeriodo>();
         }
 
         [Key]
@@ -19,7 +19,7 @@ namespace VillaggioVacanze.DB.Entities
         public string Titolo { get; set; }
         public string Descrizione { get; set; }
 
-        public List<CrossAttrazionePeriodo> AttrazioniPeriodi { get; set; }
+        public List<CrossAttrazionePeriodo> CrossAttrazioniPeriodi { get; set; }
 
     }
 }

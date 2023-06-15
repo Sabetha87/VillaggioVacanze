@@ -37,6 +37,7 @@ namespace VillaggioVacanze
             services.AddScoped<UserManager<User>>();
             services.AddScoped<RoleManager<IdentityRole>>();
             services.AddScoped<AttrazioneService>();
+            services.AddScoped<PrenotazioneService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

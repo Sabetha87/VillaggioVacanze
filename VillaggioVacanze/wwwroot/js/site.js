@@ -2,6 +2,8 @@
     var body = {};
     body.UserName = document.querySelector("#UserName").value;
     body.Email = document.querySelector("#Email").value;
+    body.FirstName = document.querySelector("#FirstName").value;
+    body.LastName = document.querySelector("#LastName").value;
     body.Password = document.querySelector("#Password").value;
     body.ConfirmPassword = document.querySelector("#ConfirmPassword").value;
 
@@ -23,8 +25,9 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-            `;
+                    </div>`;
+               
+                window.setTimeout(refreshPage, 1000);
             }
             else {
                 document.getElementById("CreateUserModalResult").innerHTML = `
@@ -34,8 +37,7 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
-            `;
+                    </div>`;
 
             }
           
@@ -43,9 +45,14 @@
             this.always();
         },
         error: function (error, status) {
-            console.log(body);
-            console.log(error);
-            console.log(status);
+            document.getElementById("CreateUserModalResult").innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        <strong>Registrazione fallita :(</strong>
+                        <p>Email o password non corrette. La password deve avere almeno 6 caratteri e la mail la @</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`;
             this.always();
         },
         always: function () {
@@ -53,6 +60,7 @@
         }
     });
 };
+
 
 
 function LoginUser() {
@@ -80,7 +88,7 @@ function LoginUser() {
                     </div>
             `;
                 
-                window.location.reload();
+                window.setTimeout(refreshPage, 1000);
             }
             else {
                 document.getElementById("LoginUserModalResult").innerHTML = `
@@ -144,3 +152,9 @@ function LogoutUser() {
 
 
 
+
+function refreshPage() {
+
+
+    location.reload(true);
+}
