@@ -21,6 +21,7 @@
 
 @model List<VillaggioVacanze.Models.AttrazioneModel>
 
+<!-- CAROUSEL -->
 <div class="container-fluid">
 
 	<div class="row">
@@ -56,9 +57,6 @@
 	</div>
 </div>
 
-
-
-
 <!-- CARDS -->
 <div class="container-fluid containerCards reveal">
 
@@ -80,8 +78,8 @@
 					</div>
 					@* <div class="card-img-overlay">*@
 					<div class="card-body">
-						<h4 class="card-title text-center">@Model[i].Titolo</h4>
-						<p class="card-text">a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo)</p>
+						<h3 class="card-title text-center">@Model[i].Titolo</h3>
+						<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
 
 						@*<a href="#" class="btn btn-primary">See Profile</a>*@
 
@@ -90,7 +88,10 @@
 						</a>
 					</div>
 					<div id="T@(Model[i].IdAttrazione)" class="collapse">
-						<p class="card-text">@Model[i].Descrizione</p>
+						<p class="card-text p-2 text-center">@Model[i].Descrizione</p>
+						<a class="btn btn-primary mb-3 ml-3">
+							Prenota
+						</a>
 					</div>
 				</div>
 			</div>
@@ -107,10 +108,7 @@
 
 </div>
 
-
-
-
-<!-- Guide -->
+<!-- GUIDE -->
 <div class="container-fluid containerCards reveal">
 	<h1 class="m-5 TitoliSezioni"> Le vostre guide </h1>
 
@@ -165,6 +163,92 @@
 						<p class="card-text">Ho sempre pensato che viaggiare mi aiutasse a spingermi oltre i miei limiti, affrontando sfide e immergendomi in avventure senza fine. Che siano esplorazioni di antiche rovine, o trekking lungo percorsi mozzafiato, immersioni in acque cristalline o esplorazioni di città affollate, ogni passo ci porta più vicini alla scoperta di noi stessi e del mondo che ci circonda. Vorrei avere l’opportunità di condividere queste esperienze con persone straordinarie, che condividano la mia stessa passione e poter scambiare con loro storie, sorrisi e abbracci.</p>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- COMMENTI -->
+<div class="container-fluid containerCards reveal">
+	<h1 class="m-5 TitoliSezioni"> I nostri clienti </h1>
+
+	<div class="container containerRecensioni">
+		<h2 class="h2Recensioni"> Se ancora hai dubbi.. </h2>
+		<p class="description">
+			Leggi le ultime recensioni che ci hanno lasciato i clienti!
+		</p>
+
+		<!-- Sezione recensioni -->
+		<div class="reviewSection">
+
+			<!-- Rec.1 -->
+			<div class="reviewItem">
+				<div class="top">
+					<div class="clientImage">
+						<img src="~/Immagini/Cliente1.png" alt="">
+						<span>Mario Rossi</span>
+					</div>
+					<ul>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+					</ul>
+				</div>
+				<article>
+					<p class="review">
+						Viaggio spettacolare organizzato benissimo da Raffaella e Vanessa. Sono stato un cliente molto esigente e fastidioso: ogni richiesta e' stata tuttavia soddisfatta con prefessionalita'. a chiunque debba andare in Giappone consiglio vivamente di prenotare da loro!!
+					</p>
+					<p>10/05/2023</p>
+				</article>
+			</div>
+
+			<!-- Rec.2  -->
+			<div class="reviewItem">
+				<div class="top">
+					<div class="clientImage">
+						<img src="~/Immagini/Cliente2.png" alt="">
+						<span>Francesca Verdi</span>
+					</div>
+					<ul>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-regular fa-star"></i></li>
+					</ul>
+				</div>
+				<article>
+					<p class="review">
+						Tutto organizzato benissimo, le guide che ci hanno accompagnato durante il viaggio si sono rivelate sempre molto professionali, le strutture consigliate all’altezza degli standard attesi ed anche le tempistiche di viaggio sono state ottime. Grazie a Chiara e Davide per l’ottimo lavoro svolto.
+					</p>
+					<p>15/05/2023</p>
+				</article>
+			</div>
+
+			<!-- Rec.3  -->
+			<div class="reviewItem">
+				<div class="top">
+					<div class="clientImage">
+						<img src="~/Immagini/Cliente3.png" alt="">
+						<span>Marta Martini</span>
+					</div>
+					<ul>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+						<li><i class="fa-solid fa-star"></i></li>
+					</ul>
+				</div>
+				<article>
+					<p class="review">
+						Un'esperienza da 10 e Lode, è stato tutto meraviglioso. Ci teniamo a sottolineare l'amore e la passione con cui queste persone svolgono il loro lavoro, l'attenzione e la premura che mettono nel preparare quello che per noi è stato un sogno che speriamo di ripetere prossimamente.
+					</p>
+					<p>23/05/2023</p>
+				</article>
 			</div>
 		</div>
 	</div>
