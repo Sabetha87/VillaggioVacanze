@@ -265,17 +265,14 @@ padding:0px;
      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.table-responsive {
-
-    overflow: scroll;
-}
 
 
 thead tr:nth-child(1) th {
     position: sticky;
     top: 0;
     z-index: 10;
-    background:blue;
+    background:white;
+
 }
 body {
     overflow-x: hidden;
@@ -406,5 +403,4 @@ article p {
         justify-content: center;
     }
 }
-
 

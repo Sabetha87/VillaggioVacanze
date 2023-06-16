@@ -11,8 +11,15 @@
 @model List<PrenotazioneModel>
 
 
-<h1 class="mt-4 mb-4">@ViewData["Title"]</h1>
+<h1 class="text-center m-5 TitoliSezioni">@ViewData["Title"]</h1>
 
+
+
+<div class="container-fluid">
+
+    <div class="row">
+<div class="col-1"></div>
+        <div class="col-10">
 <div id="ModificaPostiResult">
     @*popolato da JavaScript*@
 </div>
@@ -22,7 +29,7 @@
     <table class="table table-hover table-light">
 
         <!--Table head-->
-        <thead style="position: sticky;" bgcolor="light-blue">
+        <thead style="position: sticky;" bgcolor="#0C223F">
             <tr>
                 <th>#</th>
                 @if (User.IsInRole("Admin"))
@@ -89,4 +96,8 @@
 
     </table>
 
+</div>
+    </div>
+        <div class="col-1"></div>
+    </div>
 </div>
