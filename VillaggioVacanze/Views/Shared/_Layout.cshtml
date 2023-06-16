@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
           integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -41,19 +43,19 @@
                         <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         
                     </li>
-
-                    <li class="nav-item">
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a class="nav-link text-white" asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni</a>
-                    }
-                    </li>
                     <li class="nav-item">
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <a class="nav-link text-white" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">Viaggi disponibili</a>
                         }
                     </li>
+                    <li class="nav-item">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="nav-link text-white" asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni</a>
+                    }
+                    </li>
+                   
                 </ul>
 
                 @*Create User button*@

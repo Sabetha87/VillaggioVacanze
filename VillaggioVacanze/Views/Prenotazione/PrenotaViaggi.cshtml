@@ -51,7 +51,19 @@
                   
                     <td>@(Model[i].numPosti)</td>
                     <td>
-                        @(Model[i].attivo)
+                        @if((Model[i].attivo)== true)
+                            {
+                                <span class="material-symbols-outlined" style="color:green">
+                                    event_available
+                                </span>
+                            }
+                        else
+                        {
+                            <span class="material-symbols-outlined" style="color:red">
+                                event_busy
+                            </span>
+                        }
+                          
                     </td>
                     <td>@(Model[i].prezzo) €</td>
                     <td> 

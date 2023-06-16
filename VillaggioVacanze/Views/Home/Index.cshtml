@@ -64,37 +64,65 @@
 		{
 
 			<div class="col-sm-10 offset-sm-1 col-md-4 offset-md-0">
-				<div class="card cardViaggi">
-					<div class="card-img-wrap">
-						<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
-					</div>
-					<div class="card-body">
-						<h3 class="card-title text-center">@Model[i].Titolo</h3>
-						<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
-						<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
-							Dettagli
-						</a>
-						<div id="T@(Model[i].IdAttrazione)" class="collapse">
-							<p class="card-text p-2">@Model[i].Descrizione</p>
+				
+					@if (Model[i].AttrazioniPeriodi.Any(a=>a.attivo == true))
+				{
+					<div class="card cardViaggi">
+						<div class="card-img-wrap">
+							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
 						</div>
-
-						@if (SignInManager.IsSignedIn(User))
-						{
-							<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
-								Prenota
+						<div class="card-body">
+							<h3 class="card-title text-center">@Model[i].Titolo</h3>
+							<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
+							<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
+								Dettagli
 							</a>
-							
-							@*<button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" data-toggle="modal" data-target="#PrenotaUserModal">
-								Prenota
-							</button>*@
-							
+							<div id="T@(Model[i].IdAttrazione)" class="collapse">
+								<p class="card-text p-2">@Model[i].Descrizione</p>
+							</div>
 
-						}
+							@if (SignInManager.IsSignedIn(User))
+							{
+								<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
+									Prenota
+								</a>
+							}
 
+						</div>
 					</div>
+					}
+					else
+					{
+					<div class="card cardViaggi" style="opacity:0.4">
+						<div class="card-img-wrap">
+							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
+						</div>
+						<div class="card-body" >
+							<h3 class="card-title text-center">@Model[i].Titolo</h3>
+							<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
+							<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
+								Dettagli
+							</a>
+							<div id="T@(Model[i].IdAttrazione)" class="collapse">
+								<p class="card-text p-2">@Model[i].Descrizione</p>
+							</div>
+
+							@if (SignInManager.IsSignedIn(User))
+							{
+								<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
+									Prenota
+								</a>
+							}
+
+						</div>
+					</div>
+					}
+
+
+					
 					
 				</div>
-			</div>
+			
 
 		}
 
