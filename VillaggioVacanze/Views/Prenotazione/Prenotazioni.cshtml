@@ -68,16 +68,16 @@
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
 
-                    <td>
+                    <td class="text-align:center">
                         <input type="number" name="number" id="#@(i)numeroPostiModificati" />
                     </td>
                     <td>
-                        <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
+                        <button type="button" class="btn btn-primary full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
                             Modifica Posti
                         </button>
                     </td>
                     <td>
-                        <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" onclick="CancellaPrenotazione('@(Model[i].Id)')">
+                        <button type="button" class="btn btn-danger full-width" onclick="CancellaPrenotazione('@(Model[i].Id)')">
                             Cancella Prenotazione
                         </button>
                     </td>
