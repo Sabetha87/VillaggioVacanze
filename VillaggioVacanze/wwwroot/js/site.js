@@ -212,6 +212,132 @@ function PrenotaUser(idCrossAttrazionePeriodo, indice) {
 
 
 
+function ModificaPosti(idPrenotazione, indice) {
+
+    var body = {};
+    body.NumPostiPrenotati = document.getElementById("#" + indice + "numeroPostiModificati").value;
+    body.Id = idPrenotazione;
+    console.log(body);
+    $.ajax({
+        method: "POST",
+        url: "/api/User/ModificaPosti",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(body),
+        dataType: "json",
+        success: function (response, status) {
+            textP = document.createElement("p");
+            textP.style.textAlign = "center";
+            textP.innerText = response;
+            if (response == "OK") {
+                document.getElementById("ModificaPostiResult").innerHTML = `
+                    <div class="alert alert-success">
+                        <strong>Buon viaggio!</strong>
+                        <p>La tua modifica è avvenuta con successo.</p>
+                    </div>`;
+
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000)
+                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
+
+            }
+            else {
+                document.getElementById("ModificaPostiResult").innerHTML = `
+                    <div class="alert alert-danger">
+                        <strong>Modifica fallita!</strong>
+                        <p>Non ci sono abbastanza posti disponibili oppure hai scelto 0 posti!</p>
+                    </div>`;
+            }
+
+
+            this.always();
+        },
+        error: function (error, status) {
+            console.log("sono in error del js", error);
+            document.getElementById("ModificaUserResult").innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        <strong>Modifica fallita :(</strong>
+                        <p>Errore nella modifica</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`;
+            this.always();
+        },
+        always: function () {
+
+
+
+        }
+    });
+};
+
+function CancellaPrenotazione(idPrenotazione) {
+
+    var body = {};
+    body.Id = idPrenotazione;
+    console.log(body);
+    $.ajax({
+        method: "POST",
+        url: "/api/User/CancellaPrenotazione",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(body),
+        dataType: "json",
+        success: function (response, status) {
+            textP = document.createElement("p");
+            textP.style.textAlign = "center";
+            textP.innerText = response;
+            if (response == "OK") {
+                document.getElementById("ModificaPostiResult").innerHTML = `
+                    <div class="alert alert-success">
+                        <strong>Eliminazione avvenuta con successo!</strong>
+                        <p>Che peccato!</p>
+                    </div>`;
+
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000)
+                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
+
+            }
+            else {
+                document.getElementById("ModificaPostiResult").innerHTML = `
+                    <div class="alert alert-danger">
+                        <strong>Cancellazione fallita!</strong>
+                        <p>Qualcosa è andato storto</p>
+                    </div>`;
+            }
+
+
+            this.always();
+        },
+        error: function (error, status) {
+            console.log("sono in error del js", error);
+            document.getElementById("ModificaUserResult").innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        <strong>Cancellazione fallita :(</strong>
+                        <p>Qualcosa è andato storto</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`;
+            this.always();
+        },
+        always: function () {
+
+
+
+        }
+    });
+};
+
+
+
+
+
+
 function refreshPage() {
 
 

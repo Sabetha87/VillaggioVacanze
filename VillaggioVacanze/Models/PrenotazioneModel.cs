@@ -16,7 +16,7 @@ namespace VillaggioVacanze.Models
         public string CreatedAt { get; set; }
         public string UpdatedAt { get; set; }
         public bool? Attiva { get; set; }
-        public int NumPostiPrenotati { get; set; }
+        public string NumPostiPrenotati { get; set; }
 
        
         public User IdUserNavigation { get; set; }

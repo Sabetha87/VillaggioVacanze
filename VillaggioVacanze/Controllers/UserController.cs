@@ -168,6 +168,71 @@ namespace VillaggioVacanze.Controllers
             return Json("Richiesta non valida.");
         }
 
+        // Modifica Posti Prenotati
+        [Authorize]
+        [HttpPost("ModificaPosti")]
+        public async Task<IActionResult> ModificaPosti([FromBody] PrenotazioneModel prenotazioneModel)
+        {
+            try
+            {
+                
+
+
+                var result = PrenotazioneService.ModificaPosti(prenotazioneModel);
+
+                if (result == "OK")
+                {
+                    return Json("OK");
+                }
+                else
+                {
+
+                    return Json("KO");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
+
+            return Json("Richiesta non valida.");
+        }
+
+
+        [Authorize]
+        [HttpPost("CancellaPrenotazione")]
+        public async Task<IActionResult> CancellaPrenotazione([FromBody] PrenotazioneModel prenotazioneModel)
+        {
+            try
+            {
+
+
+
+                var result = PrenotazioneService.CancellaPrenotazione(prenotazioneModel);
+
+                if (result == "OK")
+                {
+                    return Json("OK");
+                }
+                else
+                {
+
+                    return Json("KO");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
+
+            return Json("Richiesta non valida.");
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

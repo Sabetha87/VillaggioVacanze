@@ -36,7 +36,7 @@ namespace VillaggioVacanze.Services
                     CreatedAt = p.CreatedAt.ToString(),
                     UpdatedAt = p.UpdatedAt.ToString(),
                     Attiva = p.Attiva,
-                    NumPostiPrenotati = p.NumPostiPrenotati,
+                    NumPostiPrenotati = p.NumPostiPrenotati.ToString(),
                     IdUserNavigation = p.IdUserNavigation,
                     IdCrossAttrazionePeriodoNavigation = p.IdCrossAttrazionePeriodoNavigation
                 }).OrderByDescending(p=>p.CreatedAt).ThenBy(p=>p.IdUserNavigation.LastName).ToList();
@@ -81,6 +81,57 @@ namespace VillaggioVacanze.Services
 
 
             
+        }
+
+        public string ModificaPosti(PrenotazioneModel prenotazioneModel)
+        {
+            int numPostiScelti = int.Parse(prenotazioneModel.NumPostiPrenotati);
+
+            Prenotazione entityPrenotazione = this.DBContext.Prenotazioni.Where(c => c.Id == Guid.Parse(prenotazioneModel.Id)).FirstOrDefault();
+            CrossAttrazionePeriodo entityCross = this.DBContext.CrossAttrazioniPeriodi.Where(c => c.Id == entityPrenotazione.IdCrossAttrazionePeriodo).FirstOrDefault();
+
+            if (entityPrenotazione == null || entityCross.numPosti < numPostiScelti || numPostiScelti == 0)
+            {
+                return "KO";
+            }
+
+            entityPrenotazione.NumPostiPrenotati = numPostiScelti;
+            entityCross.numPosti = entityCross.numPosti - numPostiScelti;  
+
+            this.DBContext.Prenotazioni.Update(entityPrenotazione);
+            this.DBContext.CrossAttrazioniPeriodi.Update(entityCross);
+
+            this.DBContext.SaveChanges();
+
+            return "OK";
+
+
+
+        }
+
+        public string CancellaPrenotazione(PrenotazioneModel prenotazioneModel)
+        {
+  
+
+            Prenotazione entityPrenotazione = this.DBContext.Prenotazioni.Where(c => c.Id == Guid.Parse(prenotazioneModel.Id)).FirstOrDefault();
+            CrossAttrazionePeriodo entityCross = this.DBContext.CrossAttrazioniPeriodi.Where(c => c.Id == entityPrenotazione.IdCrossAttrazionePeriodo).FirstOrDefault();
+
+            if (entityPrenotazione == null || entityCross == null)
+            {
+                return "KO";
+            }
+
+            entityCross.numPosti = entityCross.numPosti + entityPrenotazione.NumPostiPrenotati;
+
+            this.DBContext.Prenotazioni.Remove(entityPrenotazione);
+            this.DBContext.CrossAttrazioniPeriodi.Update(entityCross);
+
+            this.DBContext.SaveChanges();
+
+            return "OK";
+
+
+
         }
 
     }

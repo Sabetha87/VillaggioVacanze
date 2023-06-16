@@ -13,6 +13,9 @@
 
 <h1 class="mt-4 mb-4">@ViewData["Title"]</h1>
 
+<div id="ModificaPostiResult">
+    @*popolato da JavaScript*@
+</div>
 
 <div class="table-responsive text-nowrap">
     <!--Table-->
@@ -36,7 +39,9 @@
                 <th>Numero posti prenotati</th>
                 <th>Numero posti rimamenti</th>
                 <th>Prezzo unitario</th>
-               @* <th> </th>*@
+                <th>Modifica numero posti </th>
+                <th> </th>
+                <th> </th>
                 
             </tr>
         </thead>
@@ -62,8 +67,20 @@
                     <td>@(Model[i].NumPostiPrenotati)</td>
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
-                 
-                    @*<td><input type="image" src="~/Immagini/Matita.jpg" style="width:23px;" onclick=""> <input type="image" style="width:23px;" src="~/Immagini/Cestino.jpg" onclick=""> </td>*@
+
+                    <td>
+                        <input type="number" name="number" id="#@(i)numeroPostiModificati" />
+                    </td>
+                    <td>
+                        <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
+                            Modifica Posti
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" onclick="CancellaPrenotazione('@(Model[i].Id)')">
+                            Cancella Prenotazione
+                        </button>
+                    </td>
                 </tr>
             }
             
