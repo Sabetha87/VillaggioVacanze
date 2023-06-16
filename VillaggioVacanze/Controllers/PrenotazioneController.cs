@@ -15,11 +15,13 @@ namespace VillaggioVacanze.Controllers
     public class PrenotazioneController : Controller
     {
         private readonly PrenotazioneService PrenotazioneService;
+		private readonly AttrazioneService AttrazioneService;
 
-        public PrenotazioneController (PrenotazioneService PrenotazioneService)
+		public PrenotazioneController (PrenotazioneService PrenotazioneService, AttrazioneService AttrazioneService)
         {
             this.PrenotazioneService = PrenotazioneService;
-        }
+			this.AttrazioneService = AttrazioneService;
+		}
 
 
         public IActionResult Prenotazioni()
@@ -42,5 +44,15 @@ namespace VillaggioVacanze.Controllers
            
         }
 
-    }
+
+		public IActionResult PrenotaViaggi()
+		{
+
+			List<CrossAttrazionePeriodoModel> result = this.AttrazioneService.GetCrossAttrazionePeriodo();
+
+			return View(result);
+
+		
+		}
+	}
 }

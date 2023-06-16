@@ -149,7 +149,66 @@ function LogoutUser() {
 };
 
 
+function PrenotaUser(idCrossAttrazionePeriodo, indice) {
+   
+    var body = {};
+    body.numPosti = document.getElementById("#" + indice + "numeroPostiScelti").value;
+    body.Id = idCrossAttrazionePeriodo;
+    console.log(body);
+    $.ajax({
+        method: "POST",
+        url: "/api/User/PrenotaUser",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(body),
+        dataType: "json",
+        success: function (response, status) {
+            textP = document.createElement("p");
+            textP.style.textAlign = "center";
+            textP.innerText = response;
+            if (response == "OK") {
+                document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-success">
+                        <strong>Buon viaggio!</strong>
+                        <p>La tua prenotazione è avvenuta con successo.</p>
+                    </div>`;
+               
 
+                setTimeout(() => {
+                    window.location.replace('/Prenotazione/Prenotazioni');
+                },1000)
+                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
+               
+            }
+            else {
+                document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-danger">
+                        <strong>Prenotazione fallita!</strong>
+                        <p>Non ci sono abbastanza posti disponibili oppure hai scelto 0 posti!</p>
+                    </div>`;
+            }
+
+
+            this.always();
+        },
+        error: function (error, status) {
+            console.log("sono in error del js", error);
+            document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        <strong>Prenotazione fallita :(</strong>
+                        <p>Errore nella prenotazione</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>`;
+            this.always();
+        },
+        always: function () {
+
+
+           
+        }
+    });
+};
 
 
 

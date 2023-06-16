@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using VillaggioVacanze.DB;
 using VillaggioVacanze.DB.Entities;
 using VillaggioVacanze.Models;
-
+using VillaggioVacanze.Services;
 
 namespace VillaggioVacanze.Controllers
 {
@@ -21,14 +22,14 @@ namespace VillaggioVacanze.Controllers
         private readonly ILogger<UserController> logger;
         private SignInManager<User> signInManager;
         private UserManager<User> userManager;
-       
+        private readonly PrenotazioneService PrenotazioneService;
 
 
         public UserController(SignInManager<User> signInManager,
-           UserManager<User> userManager)
+           UserManager<User> userManager, PrenotazioneService PrenotazioneService)
         {
             this.signInManager = signInManager;
-            this.userManager = userManager;
+            this.PrenotazioneService = PrenotazioneService;
           
 
         }
@@ -129,6 +130,41 @@ namespace VillaggioVacanze.Controllers
             {
             }
             return Json("OK");
+        }
+
+
+        // Prenota User
+        [Authorize]
+        [HttpPost("PrenotaUser")]
+        public async Task<IActionResult> PrenotaUser([FromBody] CrossAttrazionePeriodoModel crossModel)
+        {
+            try
+            {
+                ClaimsPrincipal currentUser = this.User;
+
+                string userId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value; //per avere l'id della persona loggata
+
+
+                var result =  PrenotazioneService.PrenotaUser(crossModel, userId);
+
+                if (result == "OK")
+                {
+                    return Json("OK");
+                }
+                else
+                {
+
+                    return Json("KO");
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
+
+            return Json("Richiesta non valida.");
         }
 
 

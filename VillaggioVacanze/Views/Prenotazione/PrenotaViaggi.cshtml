@@ -1,0 +1,74 @@
+﻿
+@{
+	ViewData["Title"] = "Viaggi disponibili";
+}
+@using Microsoft.AspNetCore.Identity
+@using VillaggioVacanze.DB.Entities
+@using System.Collections.Generic;
+
+@inject VillaggioVacanze.DB.DBContext dbContext
+
+@model List<CrossAttrazionePeriodoModel>
+
+
+<h1 class="mt-4 mb-4">@ViewData["Title"]</h1>
+
+<div id="PrenotaUserResult">
+    @*popolato da JavaScript*@
+</div>
+<div class="table-responsive text-nowrap">
+    <!--Table-->
+    <table class="table table-hover table-light">
+
+        <!--Table head-->
+        <thead style="position: sticky;" bgcolor="light-blue">
+            <tr>
+                <th>#</th>
+               
+                <th>Viaggio</th>
+                <th>Da</th>
+                <th>A</th>
+                <th>Numero di posti disponibili</th>
+                <th>Attivo</th>
+                <th>Prezzo</th>
+                <th>Scegli numero posti </th>
+                <th> </th>
+                
+            </tr>
+        </thead>
+
+        <!--Table body-->
+        <tbody>
+
+            @for(int i =0; i < Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@(i+1)</th>
+                    
+                    <td>@(Model[i].IdAttrazioneNavigation.Titolo)</td>
+                    <td>@(Model[i].fromData)</td>
+                    <td>@(Model[i].toData)</td>
+                  
+                    <td>@(Model[i].numPosti)</td>
+                    <td>
+                        @(Model[i].attivo)
+                    </td>
+                    <td>@(Model[i].prezzo) €</td>
+                    <td> 
+                        <input type="number" name="number" id="#@(i)numeroPostiScelti"/>
+                    </td>
+
+                    <td>
+                        <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
+								Prenota
+						</button> 
+                    </td>
+                </tr>
+            }
+            
+
+        </tbody>
+
+    </table>
+
+</div>
