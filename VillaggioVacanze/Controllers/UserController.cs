@@ -29,7 +29,8 @@ namespace VillaggioVacanze.Controllers
            UserManager<User> userManager, PrenotazioneService PrenotazioneService)
         {
             this.signInManager = signInManager;
-            this.PrenotazioneService = PrenotazioneService;
+			this.userManager = userManager;
+			this.PrenotazioneService = PrenotazioneService;
           
 
         }
