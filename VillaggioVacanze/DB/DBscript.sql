@@ -1,8 +1,7 @@
---la password dell'Admin è Password01!
-
+--Admin password Password01!
 USE [VillaggioVacanze]
 GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +17,7 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -34,7 +33,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -50,7 +49,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -67,7 +66,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +81,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +110,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +128,7 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Attrazioni]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[Attrazioni]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -144,7 +143,7 @@ CREATE TABLE [dbo].[Attrazioni](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CrossAttrazioniPeriodi]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[CrossAttrazioniPeriodi]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -163,7 +162,7 @@ CREATE TABLE [dbo].[CrossAttrazioniPeriodi](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Prenotazioni]    Script Date: 15/06/2023 23:29:01 ******/
+/****** Object:  Table [dbo].[Prenotazioni]    Script Date: 16/06/2023 18:02:05 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -218,25 +217,51 @@ INSERT [dbo].[Attrazioni] ([IdAttrazione], [Titolo], [Descrizione]) VALUES (N'82
 GO
 INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'2498ffa0-0fe2-414d-bcca-00b3a178e1a2', N'fc669348-822f-483c-85b3-6cee82cd92e5', CAST(N'2023-01-01' AS Date), CAST(N'2023-01-10' AS Date), 10, 1, 1500)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'3cadcafb-e079-4d98-bc9e-18be95a432a6', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-03-01' AS Date), CAST(N'2023-03-10' AS Date), 6, 1, 1300)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'3cadcafb-e079-4d98-bc9e-18be95a432a6', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-03-01' AS Date), CAST(N'2023-03-10' AS Date), 0, 0, 1300)
 GO
 INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'9eb75bd8-b579-4ded-8c36-1cc7a53f2e8d', N'fc669348-822f-483c-85b3-6cee82cd92e5', CAST(N'2023-02-01' AS Date), CAST(N'2023-02-10' AS Date), 8, 1, 1600)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'96586126-ae82-43c5-8d81-3875046a0ec2', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-01-01' AS Date), CAST(N'2023-01-10' AS Date), 10, 1, 1100)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'96586126-ae82-43c5-8d81-3875046a0ec2', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-01-01' AS Date), CAST(N'2023-01-10' AS Date), 0, 0, 1100)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'605d1262-c062-4e4b-a2ec-4fe51143d54b', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-01-01' AS Date), CAST(N'2023-01-10' AS Date), 10, 1, 1800)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'605d1262-c062-4e4b-a2ec-4fe51143d54b', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-01-01' AS Date), CAST(N'2023-01-10' AS Date), 0, 0, 1800)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'060afb9b-adde-444f-9702-a01f7773b376', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-03-01' AS Date), CAST(N'2023-03-10' AS Date), 6, 1, 1300)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'060afb9b-adde-444f-9702-a01f7773b376', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-03-01' AS Date), CAST(N'2023-03-10' AS Date), -1, 1, 1300)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'81e39210-7bc6-4144-9626-a17177f04dfb', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-02-01' AS Date), CAST(N'2023-02-10' AS Date), 8, 1, 1200)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'81e39210-7bc6-4144-9626-a17177f04dfb', N'824b7029-b553-425e-b3e9-d7e597fcb250', CAST(N'2023-02-01' AS Date), CAST(N'2023-02-10' AS Date), 0, 0, 1200)
 GO
-INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'96011097-e05a-4e7f-98a4-af687c437dce', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-02-01' AS Date), CAST(N'2023-02-10' AS Date), 8, 1, 1900)
+INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'96011097-e05a-4e7f-98a4-af687c437dce', N'd51ba505-a102-44a5-94b2-8277141a9fc0', CAST(N'2023-02-01' AS Date), CAST(N'2023-02-10' AS Date), 0, 1, 1900)
 GO
 INSERT [dbo].[CrossAttrazioniPeriodi] ([id], [idAttrazione], [fromData], [toData], [numPosti], [attivo], [prezzo]) VALUES (N'3efbd70e-729c-458a-bbe5-f60e5d702fc3', N'fc669348-822f-483c-85b3-6cee82cd92e5', CAST(N'2023-03-01' AS Date), CAST(N'2023-03-10' AS Date), 6, 1, 1700)
 GO
 INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'bcca0bce-71e9-41cf-83e5-00a6fdac7a2d', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'2498ffa0-0fe2-414d-bcca-00b3a178e1a2', CAST(N'2023-06-15' AS Date), NULL, NULL, 3)
 GO
 INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'19835529-ffd5-4b4d-beac-057b1607e4c3', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'9eb75bd8-b579-4ded-8c36-1cc7a53f2e8d', CAST(N'2023-06-15' AS Date), NULL, NULL, 1)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'8f21bf10-b2f6-40bb-d346-08db6e78ddeb', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'060afb9b-adde-444f-9702-a01f7773b376', CAST(N'2023-06-16' AS Date), NULL, NULL, 2)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'f449e1e6-9000-4a2e-0e76-08db6e790447', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'060afb9b-adde-444f-9702-a01f7773b376', CAST(N'2023-06-16' AS Date), NULL, NULL, 2)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'afe6aa2a-12c2-45d8-0e77-08db6e790447', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'060afb9b-adde-444f-9702-a01f7773b376', CAST(N'2023-06-16' AS Date), NULL, NULL, 3)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'40d9c7d8-6f46-4d39-b0eb-08db6e79d6e0', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'96011097-e05a-4e7f-98a4-af687c437dce', CAST(N'2023-06-16' AS Date), NULL, NULL, 2)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'6a8bfdca-effa-45d6-7dcb-08db6e7d8e6f', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'96011097-e05a-4e7f-98a4-af687c437dce', CAST(N'2023-06-16' AS Date), NULL, NULL, 3)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'be8bbbda-f8f3-4b42-7dcc-08db6e7d8e6f', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'96011097-e05a-4e7f-98a4-af687c437dce', CAST(N'2023-06-16' AS Date), NULL, NULL, 3)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'dbfcaef4-eba1-4960-5baf-08db6e7dade8', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'96011097-e05a-4e7f-98a4-af687c437dce', CAST(N'2023-06-16' AS Date), NULL, NULL, 0)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'5f3a291b-b8c6-4f21-6d50-08db6e7e1171', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'605d1262-c062-4e4b-a2ec-4fe51143d54b', CAST(N'2023-06-16' AS Date), NULL, NULL, 2)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'b6ef581e-a061-4235-b8eb-08db6e7e2759', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'605d1262-c062-4e4b-a2ec-4fe51143d54b', CAST(N'2023-06-16' AS Date), NULL, NULL, 2)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'47d72ea2-c7e8-4fe5-61a8-08db6e803ced', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'3cadcafb-e079-4d98-bc9e-18be95a432a6', CAST(N'2023-06-16' AS Date), NULL, NULL, 6)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'4ea1b3b2-cd31-4682-8fdc-08db6e82323e', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'605d1262-c062-4e4b-a2ec-4fe51143d54b', CAST(N'2023-06-16' AS Date), NULL, NULL, 6)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'fbe0489d-fe9c-4458-8fdd-08db6e82323e', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'81e39210-7bc6-4144-9626-a17177f04dfb', CAST(N'2023-06-16' AS Date), NULL, NULL, 8)
+GO
+INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'5a4c450e-03cc-44d3-8fde-08db6e82323e', N'5d3c095a-4a11-4dcf-be97-7c7ea17e6c20', N'96586126-ae82-43c5-8d81-3875046a0ec2', CAST(N'2023-06-16' AS Date), NULL, NULL, 10)
 GO
 INSERT [dbo].[Prenotazioni] ([Id], [IdUtente], [IdCrossAttrazionePeriodo], [CreatedAt], [UpdatedAt], [Attiva], [NumPostiPrenotati]) VALUES (N'2f5732dc-7da2-464f-9c1b-86cddcc413a4', N'cc2d23db-acf3-43dd-a5c2-752f8a28640d', N'96011097-e05a-4e7f-98a4-af687c437dce', CAST(N'2023-06-15' AS Date), NULL, NULL, 2)
 GO
