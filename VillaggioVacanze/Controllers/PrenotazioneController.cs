@@ -8,22 +8,22 @@ using VillaggioVacanze.DB.Entities;
 using System.Security.Claims;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VillaggioVacanze.Controllers
 {
     
     public class PrenotazioneController : Controller
     {
-        private readonly PrenotazioneService PrenotazioneService;
 		private readonly AttrazioneService AttrazioneService;
 
-		public PrenotazioneController (PrenotazioneService PrenotazioneService, AttrazioneService AttrazioneService)
+		public PrenotazioneController (AttrazioneService AttrazioneService)
         {
-            this.PrenotazioneService = PrenotazioneService;
+          
 			this.AttrazioneService = AttrazioneService;
 		}
 
-
+        [Authorize]
         public IActionResult Prenotazioni()
         {
             
@@ -38,13 +38,13 @@ namespace VillaggioVacanze.Controllers
 
 
 
-                List<PrenotazioneModel> result = this.PrenotazioneService.GetPrenotazioni(userId);
+                List<PrenotazioneModel> result = this.AttrazioneService.GetPrenotazioni(userId);
 
                 return View(result);
            
         }
 
-
+        [Authorize]
 		public IActionResult PrenotaViaggi()
 		{
 

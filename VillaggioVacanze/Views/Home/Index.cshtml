@@ -65,7 +65,7 @@
 
 			<div class="col-sm-10 offset-sm-1 col-md-4 offset-md-0">
 
-				@if (Model[i].AttrazioniPeriodi.Any(a=>a.attivo == false) && SignInManager.IsSignedIn(User))
+				@if (SignInManager.IsSignedIn(User) && Model[i].AttrazioniPeriodi.All(a=>a.attivo == false) )
 				{
 					<div class="card cardViaggi" style="opacity:0.4">
 						<div class="card-img-wrap">

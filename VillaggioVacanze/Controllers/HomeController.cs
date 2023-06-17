@@ -26,8 +26,6 @@ namespace VillaggioVacanze.Controllers
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.attrazioneService = attrazioneService;
-
-
         }
 
 
@@ -51,27 +49,7 @@ namespace VillaggioVacanze.Controllers
             return View();
         }
 
-        [Authorize]
-        public IActionResult UserPage()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public IActionResult AdminPage()
-        {
-            return View();
-        }
-
-
-        //[Authorize]
-        public IActionResult Prenotami(/*[FromQuery] string param*/)
-        {
-
-            return View();
-        }
-
-
+        
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

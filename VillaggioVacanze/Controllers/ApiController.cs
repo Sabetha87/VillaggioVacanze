@@ -17,20 +17,20 @@ namespace VillaggioVacanze.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class ApiController : Controller
     {
-        private readonly ILogger<UserController> logger;
+        private readonly ILogger<ApiController> logger;
         private SignInManager<User> signInManager;
         private UserManager<User> userManager;
-        private readonly PrenotazioneService PrenotazioneService;
+        private readonly AttrazioneService AttrazioneService;
 
 
-        public UserController(SignInManager<User> signInManager,
-           UserManager<User> userManager, PrenotazioneService PrenotazioneService)
+        public ApiController(SignInManager<User> signInManager,
+           UserManager<User> userManager, AttrazioneService AttrazioneService)
         {
             this.signInManager = signInManager;
 			this.userManager = userManager;
-			this.PrenotazioneService = PrenotazioneService;
+			this.AttrazioneService = AttrazioneService;
           
 
         }
@@ -146,7 +146,7 @@ namespace VillaggioVacanze.Controllers
                 string userId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value; //per avere l'id della persona loggata
 
 
-                var result =  PrenotazioneService.PrenotaUser(crossModel, userId);
+                var result =  AttrazioneService.PrenotaUser(crossModel, userId);
 
                 if (result == "OK")
                 {
@@ -178,7 +178,7 @@ namespace VillaggioVacanze.Controllers
                 
 
 
-                var result = PrenotazioneService.ModificaPosti(prenotazioneModel);
+                var result = AttrazioneService.ModificaPosti(prenotazioneModel);
 
                 if (result == "OK")
                 {
@@ -210,7 +210,7 @@ namespace VillaggioVacanze.Controllers
 
 
 
-                var result = PrenotazioneService.CancellaPrenotazione(prenotazioneModel);
+                var result = AttrazioneService.CancellaPrenotazione(prenotazioneModel);
 
                 if (result == "OK")
                 {
@@ -243,7 +243,7 @@ namespace VillaggioVacanze.Controllers
 
 
 
-                var result = PrenotazioneService.CancellaCrossAttrazionePeriodo(crossModel);
+                var result = AttrazioneService.CancellaCrossAttrazionePeriodo(crossModel);
 
                 if (result == "OK")
                 {

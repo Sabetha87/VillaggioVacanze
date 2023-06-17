@@ -9,7 +9,7 @@
 
     $.ajax({
         method: "POST",
-        url: "/api/User/CreateUser",
+        url: "/api/Api/CreateUser",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -69,7 +69,7 @@ function LoginUser() {
     body.Password = document.querySelector("#LoginPassword").value;
     $.ajax({
         method: "POST",
-        url: "/api/User/LoginUser",
+        url: "/api/Api/LoginUser",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -125,7 +125,7 @@ function LogoutUser() {
     var body = {};
     $.ajax({
         method: "POST",
-        url: "/api/User/LogoutUser",
+        url: "/api/Api/LogoutUser",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -157,7 +157,7 @@ function PrenotaUser(idCrossAttrazionePeriodo, indice) {
     console.log(body);
     $.ajax({
         method: "POST",
-        url: "/api/User/PrenotaUser",
+        url: "/api/Api/PrenotaUser",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -227,7 +227,7 @@ function ModificaPosti(idPrenotazione, indice) {
     console.log(body);
     $.ajax({
         method: "POST",
-        url: "/api/User/ModificaPosti",
+        url: "/api/Api/ModificaPosti",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -294,7 +294,7 @@ function CancellaPrenotazione(idPrenotazione) {
     console.log(body);
     $.ajax({
         method: "POST",
-        url: "/api/User/CancellaPrenotazione",
+        url: "/api/Api/CancellaPrenotazione",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
@@ -352,7 +352,7 @@ function CancellaCrossAttrazionePeriodo(idCross) {
     console.log(body);
     $.ajax({
         method: "POST",
-        url: "/api/User/CancellaCrossAttrazionePeriodo",
+        url: "/api/Api/CancellaCrossAttrazionePeriodo",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(body),
         dataType: "json",
