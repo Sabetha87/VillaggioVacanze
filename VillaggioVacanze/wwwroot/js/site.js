@@ -333,7 +333,75 @@ function CancellaPrenotazione(idPrenotazione) {
     });
 };
 
+function CancellaCrossAttrazionePeriodo(idCross) {
 
+    var body = {};
+    body.Id = idCross;
+    console.log(body);
+    $.ajax({
+        method: "POST",
+        url: "/api/User/CancellaCrossAttrazionePeriodo",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(body),
+        dataType: "json",
+        success: function (response, status) {
+            textP = document.createElement("p");
+            textP.style.textAlign = "center";
+            textP.innerText = response;
+            if (response == "OK") {
+                document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-success">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Eliminazione avvenuta con successo!</strong>
+                        <p>Che peccato!</p>
+                      
+                    </div>`;
+
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000)
+                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
+
+            }
+            else {
+                document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Cancellazione fallita!</strong>
+                        <p>Non è possibile eliminare un periodo se ci sono delle prenotazioni effettuate</p>
+                       
+                    </div>`;
+            }
+
+
+            this.always();
+        },
+        error: function (error, status) {
+            console.log("sono in error del js", error);
+            document.getElementById("PrenotaUserResult").innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Cancellazione fallita :(</strong>
+                        <p>Qualcosa è andato storto</p>
+                       
+                    </div>`;
+            this.always();
+        },
+        always: function () {
+
+           
+
+
+        }
+    });
+};
 
 
 

@@ -26,7 +26,7 @@
 
 <div class="table-responsive text-nowrap">
     <!--Table-->
-    <table class="table table-hover table-light">
+                <table id="dtBasicExample" class="table table-hover table-light">
 
         <!--Table head-->
         <thead style="position: sticky;" bgcolor="#0C223F">
@@ -34,22 +34,21 @@
                 <th>#</th>
                 @if (User.IsInRole("Admin"))
                 {
-                    <th>Cognome</th>
-                    <th>Nome</th>
-                    <th>Email</th>
+                    <th class="th-sm">Cognome</th>
+                    <th class="th-sm">Nome</th>
+                    <th class="th-sm">Email</th>
                 }
-                <th>Viaggio</th>
-                <th>Da</th>
-                <th>A</th>
-                <th>Data della prenotazione</th>
-                @*<th>Data modifica</th>*@
-                <th>Numero posti prenotati</th>
-                <th>Numero posti rimamenti</th>
-                <th>Prezzo unitario</th>
-                <th>Modifica numero posti </th>
+                <th class="th-sm">Viaggio</th>
+                <th class="th-sm">Da</th>
+                <th class="th-sm">A</th>
+                <th class="th-sm">Data della prenotazione</th>
+               
+                <th class="th-sm">Numero posti prenotati</th>
+                <th class="th-sm">Numero posti rimamenti</th>
+                <th class="th-sm">Prezzo unitario</th>
+                <th class="th-sm">Modifica numero posti </th>
                 <th> </th>
-                <th> </th>
-                
+             
             </tr>
         </thead>
 
@@ -67,18 +66,15 @@
                     <td>@(Model[i].IdUserNavigation.Email)</td>
                     }
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.IdAttrazioneNavigation.Titolo)</td>
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.fromData.Date.ToString("yyyy-MM-dd"))</td>
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.toData.Date.ToString("yyyy-MM-dd"))</td>
-                    <td>@(Model[i].CreatedAt)</td>
-                    @*<td>@(Model[i].DataModifica)</td>*@
+                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.fromData.Date.ToString("dd/MM/yyyy"))</td>
+                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.toData.Date.ToString("dd/MM/yyyy"))</td>
+                    <td>@(DateTime.Parse(Model[i].CreatedAt).ToString("dd/MM/yyyy"))</td>
                     <td>@(Model[i].NumPostiPrenotati)</td>
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
                     <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
 
                     <td class="text-align:center">
-                        <input type="number" name="number" id="#@(i)numeroPostiModificati" />
-                    </td>
-                    <td>
+                        <input type="number" name="number" id="#@(i)numeroPostiModificati" style="width:10%;"/>
                         <button type="button" class="btn btn-primary full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
                             Modifica Posti
                         </button>

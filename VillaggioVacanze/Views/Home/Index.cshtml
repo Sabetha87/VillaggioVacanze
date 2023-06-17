@@ -64,16 +64,25 @@
 		{
 
 			<div class="col-sm-10 offset-sm-1 col-md-4 offset-md-0">
-				@*se non sei loggato le vedi tutte (disponibili o no)*@
-				@if (!SignInManager.IsSignedIn(User))
-					{
-					<div class="card cardViaggi">
+
+				@if (Model[i].AttrazioniPeriodi.Any(a=>a.attivo == false) && SignInManager.IsSignedIn(User))
+				{
+					<div class="card cardViaggi" style="opacity:0.4">
 						<div class="card-img-wrap">
 							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
 						</div>
 						<div class="card-body">
 							<h3 class="card-title text-center">@Model[i].Titolo</h3>
-							<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
+							@if (Model[i].AttrazioniPeriodi.Count() > 0)
+							{
+								<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
+
+							}
+							else
+							{
+								<p class="card-text">Prezzi a partire da 1500 €</p>
+
+							}
 							<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
 								Dettagli
 							</a>
@@ -90,71 +99,44 @@
 
 						</div>
 					</div>
-					}
-				@* se ti loggi invece vedi opache quelle terminate*@
+				}
 				else
 				{
-					@*se sono tutte attive nei periodi*@
-					@if (Model[i].AttrazioniPeriodi.Any(a => a.attivo == true))
-						{
-						<div class="card cardViaggi">
-							<div class="card-img-wrap">
-								<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
-							</div>
-							<div class="card-body">
-								<h3 class="card-title text-center">@Model[i].Titolo</h3>
-								<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
-								<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
-									Dettagli
-								</a>
-								<div id="T@(Model[i].IdAttrazione)" class="collapse">
-									<p class="card-text p-2">@Model[i].Descrizione</p>
-								</div>
-
-								@if (SignInManager.IsSignedIn(User))
-								{
-									<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
-										Prenota
-									</a>
-								}
-
-							</div>
+					<div class="card cardViaggi">
+						<div class="card-img-wrap">
+							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
 						</div>
-						}
-					else
-						{
-						<div class="card cardViaggi" style="opacity:0.4">
-							<div class="card-img-wrap">
-								<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
-							</div>
-							<div class="card-body">
-								<h3 class="card-title text-center">@Model[i].Titolo</h3>
+						<div class="card-body">
+							<h3 class="card-title text-center">@Model[i].Titolo</h3>
+							@if (Model[i].AttrazioniPeriodi.Count() > 0)
+							{
 								<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
-								<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
-									Dettagli
-								</a>
-								<div id="T@(Model[i].IdAttrazione)" class="collapse">
-									<p class="card-text p-2">@Model[i].Descrizione</p>
-								</div>
 
-								@if (SignInManager.IsSignedIn(User))
-								{
-									<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
-										Prenota
-									</a>
-								}
+							}
+							else
+							{
+								<p class="card-text">Prezzi a partire da 1500 €</p>
 
+							}
+							<a class="btn btn-primary mt-3 mb-3 full-width" data-toggle="collapse" href="#T@(Model[i].IdAttrazione)">
+								Dettagli
+							</a>
+							<div id="T@(Model[i].IdAttrazione)" class="collapse">
+								<p class="card-text p-2">@Model[i].Descrizione</p>
 							</div>
+
+							@if (SignInManager.IsSignedIn(User))
+							{
+								<a class="float-right btn btn-primary mt-3 mb-3 full-width" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">
+									Prenota
+								</a>
+							}
+
 						</div>
-						}
+					</div>
 				}
-				
 					
-
-
-					
-					
-				</div>
+			</div>
 			
 
 		}

@@ -34,9 +34,9 @@ html {
     font-size: 16px;
   }
 }
-body {
+/*body {
     background-color: #d4ebf2;
-}
+}*/
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -161,13 +161,13 @@ padding:0px;
 }
 
 
-.navbar {
+/*.navbar {
     background: #0C223F;
 }
 
 .footer {
     background: #0C223F;
-}
+}*/
 
 /*Card persone*/
 #cardPersona1 {
@@ -401,6 +401,19 @@ article p {
         align-items: center;
         flex-direction: column;
         justify-content: center;
+    }
+
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
     }
 }
 

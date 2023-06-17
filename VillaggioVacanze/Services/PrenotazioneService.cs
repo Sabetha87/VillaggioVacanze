@@ -137,6 +137,34 @@ namespace VillaggioVacanze.Services
 
         }
 
+
+        public string CancellaCrossAttrazionePeriodo(CrossAttrazionePeriodoModel crossModel)
+        {
+
+
+            CrossAttrazionePeriodo entityCross = this.DBContext.CrossAttrazioniPeriodi
+                .Where(c => c.Id == Guid.Parse(crossModel.Id)).FirstOrDefault();
+
+            entityCross.Prenotazioni = this.DBContext.Prenotazioni.Where(p => p.IdCrossAttrazionePeriodo == entityCross.Id).ToList();
+
+
+            int prenotazioniEffettuate = entityCross.Prenotazioni.Sum(p => p.NumPostiPrenotati);
+
+            if (entityCross == null || prenotazioniEffettuate > 0 || entityCross.Prenotazioni.Count()> 0)
+            {
+                return "KO";
+            }
+
+            
+            this.DBContext.CrossAttrazioniPeriodi.Remove(entityCross);
+
+            this.DBContext.SaveChanges();
+
+            return "OK";
+
+
+
+        }
     }
 }
 

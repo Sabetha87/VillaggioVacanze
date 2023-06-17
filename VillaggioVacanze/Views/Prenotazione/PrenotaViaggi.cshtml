@@ -10,120 +10,130 @@
 
 @model List<CrossAttrazionePeriodoModel>
 
+<style>
+
+    td {
+        width: 10%;
+    }
+
+    th {
+        width: 10%;
+    }
+
+</style>
 
 <h1 class="text-center m-5 TitoliSezioni">@ViewData["Title"]</h1>
 
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-<div id="PrenotaUserResult">
-    @*popolato da JavaScript*@
-</div>
+<div class="row mr-5 ml-5" >
+       @* <div class="col-1"></div>
+        <div class="col-10">*@
+        <div id="PrenotaUserResult">
+            @*popolato da JavaScript*@
+        </div>
 
-<div class="table-responsive text-nowrap">
-    <!--Table-->
-    <table class="table table-hover table-bordered table-light">
+        <div class="table-responsive text-nowrap " style="overflow-y:auto; overflow-x:auto; height:600px; width:100%;">
+                <!--Table-->
+                <table id="dtBasicExample" class="table table-hover table-bordered table-danger text-center">
 
-        <!--Table head-->
-        <thead style="position: sticky;" bgcolor="#0C223F">
-            <tr>
-                <th>#</th>
-               
-                <th>Viaggio</th>
-                <th>Da</th>
-                <th>A</th>
-                <th>Numero di posti disponibili</th>
-                <th>Attivo</th>
-                <th>Prezzo</th>
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th class="th-sm">#</th>
+                            <th class ="th-sm">Viaggio</th>
+                            <th class ="th-sm">Da</th>
+                            <th class ="th-sm">A</th>
+                            <th class ="th-sm">Posti disponibili</th>
+                            <th class ="th-sm">Attivo</th>
+                            <th class ="th-sm">Prezzo</th>
                 
-                @if (User.IsInRole("Admin"))
-                {
-                    <th>Numero di prenotazioni effettuate</th>
-                }
-                else
-                {
-                    <th>Scegli numero posti</th>
-                }
-               
-                <th> </th>
-                
-            </tr>
-        </thead>
-
-        <!--Table body-->
-        <tbody>
-
-            @for(int i =0; i < Model.Count; i++)
-            {
-                <tr>
-                    <th scope="row">@(i+1)</th>
-                    
-                    <td>@(Model[i].IdAttrazioneNavigation.Titolo)</td>
-                    <td>@(Model[i].fromData)</td>
-                    <td>@(Model[i].toData)</td>
-                  
-                    <td>@(Model[i].numPosti)</td>
-                    <td>
-                        @if((Model[i].attivo)== true)
+                            @if (User.IsInRole("Admin"))
                             {
-                                <span class="material-symbols-outlined" style="color:green">
-                                    event_available
-                                </span>
+                            <th class="th-sm">Posti prenotati</th>
                             }
-                        else
+                            else
+                            {
+                            <th class="th-sm">Numero posti</th>
+                            }
+               
+                            <th> </th>
+                
+                        </tr>
+                    </thead>
+
+                    <!--Table body-->
+                    <tbody>
+
+                        @for(int i =0; i < Model.Count; i++)
                         {
-                            <span class="material-symbols-outlined" style="color:red">
-                                event_busy
-                            </span>
-                        }
-                          
-                    </td>
-                    <td>@(Model[i].prezzo) €</td>
+                            <tr>
+                                <th scope="row">@(i+1)</th>
                     
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <td>@(Model[i].Prenotazioni.Sum(p => p.NumPostiPrenotati)) </td>
-                     }
-                    else
-                    {
-                        <td>
-                            <input type="number" name="number" id="#@(i)numeroPostiScelti" />
-                        </td>
+                                <td>@(Model[i].IdAttrazioneNavigation.Titolo)</td>
+                                            <td>@(DateTime.Parse(Model[i].fromData).ToString("dd/MM/yyyy"))</td>
+                                            <td>@(DateTime.Parse(Model[i].toData).ToString("dd/MM/yyyy"))</td>
+                  
+                                <td>@(Model[i].numPosti)</td>
+                                <td>
+                                    @if((Model[i].attivo)== true)
+                                        {
+                                            <span class="material-symbols-outlined" style="color:green">
+                                                event_available
+                                            </span>
+                                        }
+                                    else
+                                    {
+                                        <span class="material-symbols-outlined" style="color:red">
+                                            event_busy
+                                        </span>
+                                    }
+                          
+                                </td>
+                                <td>@(Model[i].prezzo) €</td>
+                    
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <td>@(Model[i].Prenotazioni.Sum(p => p.NumPostiPrenotati)) </td>
+                                 }
+                                else
+                                {
+                                    <td>
+                                        <input type="number" name="number" placeholder="Scegli numero di posti" id="#@(i)numeroPostiScelti" />
+                                    </td>
                         
-                    }
+                                }
                        
                     
 
-                    <td>
-                        @if (User.IsInRole("Admin"))
-                        {
+                                <td>
+                                    @if (User.IsInRole("Admin"))
+                                    {
                             
-                            <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" 
-                            onclick="EliminaPeriodo('@(Model[i].Id)')">
-                                Elimina
-                            </button>
+                                        <button type="button" class="float-right btn btn-primary full-width"
+                                        onclick="CancellaCrossAttrazionePeriodo('@(Model[i].Id)')">
+                                            Elimina
+                                        </button>
                            
-                        }
-                        else
-                        {
-                            <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" 
-                            onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
-                                Prenota
-                            </button>
-                        }
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="float-right btn btn-primary full-width" 
+                                        onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
+                                            Prenota
+                                        </button>
+                                    }
                        
-                    </td>
-                </tr>
-            }
+                                </td>
+                            </tr>
+                        }
             
 
-        </tbody>
+                    </tbody>
 
-    </table>
-            </div>
-        </div>
-        <div class="col-1"></div>
+                </table>
+           @* </div>*@
+           </div>
+        @*<div class="col-1"></div>*@
     </div>
 </div>

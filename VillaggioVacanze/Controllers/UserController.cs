@@ -234,6 +234,39 @@ namespace VillaggioVacanze.Controllers
 
 
 
+        [Authorize]
+        [HttpPost("CancellaCrossAttrazionePeriodo")]
+        public async Task<IActionResult> CancellaCrossAttrazionePeriodo([FromBody] CrossAttrazionePeriodoModel crossModel)
+        {
+            try
+            {
+
+
+
+                var result = PrenotazioneService.CancellaCrossAttrazionePeriodo(crossModel);
+
+                if (result == "OK")
+                {
+                    return Json("OK");
+                }
+                else
+                {
+
+                    return Json("KO");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+            }
+
+            return Json("Richiesta non valida.");
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

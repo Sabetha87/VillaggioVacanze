@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
           integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdn.datatables.net/v/bs4/dt-1.13.4/datatables.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -40,19 +44,19 @@
                 <ul class="navbar-nav mr-auto">
                     @*Home*@
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         
                     </li>
                     <li class="nav-item">
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <a class="nav-link text-white" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">Viaggi disponibili</a>
+                            <a class="nav-link text-white " asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">Viaggi disponibili</a>
                         }
                     </li>
                     <li class="nav-item">
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <a class="nav-link text-white" asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni</a>
+                            <a class="nav-link text-white " asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni</a>
                     }
                     </li>
                    
@@ -240,6 +244,10 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/varieJS.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+
+    <script src="https://cdn.datatables.net/v/bs4/dt-1.13.4/datatables.min.js"></script>
+
 
 
 

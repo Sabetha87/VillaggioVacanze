@@ -29,8 +29,14 @@ function reveal() {
 
 window.onload = (event) => {
     
-        //document.querySelectorAll(".reveal")[0].classList.add("active");
+        document.querySelectorAll(".reveal")[0].classList.add("active");
 
     
 }
 window.addEventListener("scroll", reveal);
+
+
+$(document).ready(function () {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+});
