@@ -29,7 +29,7 @@ function reveal() {
 
 window.onload = (event) => {
     
-        document.querySelectorAll(".reveal")[0].classList.add("active");
+        //document.querySelectorAll(".reveal")[0].classList.add("active");
 
     
 }

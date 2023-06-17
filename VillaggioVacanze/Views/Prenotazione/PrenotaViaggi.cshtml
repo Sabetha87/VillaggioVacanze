@@ -21,6 +21,7 @@
 <div id="PrenotaUserResult">
     @*popolato da JavaScript*@
 </div>
+
 <div class="table-responsive text-nowrap">
     <!--Table-->
     <table class="table table-hover table-bordered table-light">
@@ -36,7 +37,16 @@
                 <th>Numero di posti disponibili</th>
                 <th>Attivo</th>
                 <th>Prezzo</th>
-                <th>Scegli numero posti </th>
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    <th>Numero di prenotazioni effettuate</th>
+                }
+                else
+                {
+                    <th>Scegli numero posti</th>
+                }
+               
                 <th> </th>
                 
             </tr>
@@ -71,14 +81,39 @@
                           
                     </td>
                     <td>@(Model[i].prezzo) €</td>
-                    <td> 
-                        <input type="number" name="number" id="#@(i)numeroPostiScelti"/>
-                    </td>
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@(Model[i].Prenotazioni.Sum(p => p.NumPostiPrenotati)) </td>
+                     }
+                    else
+                    {
+                        <td>
+                            <input type="number" name="number" id="#@(i)numeroPostiScelti" />
+                        </td>
+                        
+                    }
+                       
+                    
 
                     <td>
-                        <button type="button" class="btn btn-primary full-width" onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
-								Prenota
-						</button> 
+                        @if (User.IsInRole("Admin"))
+                        {
+                            
+                            <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" 
+                            onclick="EliminaPeriodo('@(Model[i].Id)')">
+                                Elimina
+                            </button>
+                           
+                        }
+                        else
+                        {
+                            <button type="button" class="float-right btn btn-primary mt-3 mb-3 full-width" 
+                            onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
+                                Prenota
+                            </button>
+                        }
+                       
                     </td>
                 </tr>
             }
