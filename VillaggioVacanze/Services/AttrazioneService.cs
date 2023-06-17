@@ -41,7 +41,8 @@ namespace VillaggioVacanze.Services
 					numPosti = c.numPosti.ToString(),
 					attivo = c.attivo,
 					prezzo = c.prezzo,
-					IdAttrazioneNavigation = c.IdAttrazioneNavigation
+					IdAttrazioneNavigation = c.IdAttrazioneNavigation,
+					Prenotazioni = this.DBContext.Prenotazioni.Where(p=>p.IdCrossAttrazionePeriodo == c.Id).ToList()
 
 				}).OrderBy(c=>c.IdAttrazioneNavigation.Titolo).ThenByDescending(c=>c.fromData).ToList();
 
