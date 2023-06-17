@@ -56,7 +56,7 @@
 	<h1 class="text-center m-5 TitoliSezioni"> I nostri viaggi</h1>
 
 	<!-- Cards -->
-	<div class="row mt-5">
+	<div class="row mt-5 ml-3 mr-3">
 
 
 
@@ -72,7 +72,7 @@
 							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
 						</div>
 						<div class="card-body">
-							<h3 class="card-title text-center">@Model[i].Titolo</h3>
+							<h3 class="card-title text-center cardTitle">@Model[i].Titolo</h3>
 							@if (Model[i].AttrazioniPeriodi.Count() > 0)
 							{
 								<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
@@ -107,7 +107,7 @@
 							<img class="card-img-top" src="Immagini/@(Model[i].Titolo).jpg" alt="@Model[i].Titolo" style="width:100%">
 						</div>
 						<div class="card-body">
-							<h3 class="card-title text-center">@Model[i].Titolo</h3>
+							<h3 class="card-title text-center cardTitle">@Model[i].Titolo</h3>
 							@if (Model[i].AttrazioniPeriodi.Count() > 0)
 							{
 								<p class="card-text">Prezzi a partire da @Model[i].AttrazioniPeriodi.Min(m=>m.prezzo) €</p>
@@ -152,7 +152,7 @@
 </div>
 
 <!-- GUIDE -->
-<div class="container-fluid containerCards reveal">
+<div class="container-fluid containerCards reveal ">
 	<h1 class="m-5 TitoliSezioni"> Le vostre guide </h1>
 
 	<div  class="row">

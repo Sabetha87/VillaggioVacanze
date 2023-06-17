@@ -168,6 +168,9 @@ function PrenotaUser(idCrossAttrazionePeriodo, indice) {
             if (response == "OK") {
                 document.getElementById("PrenotaUserResult").innerHTML = `
                     <div class="alert alert-success">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <strong>Buon viaggio!</strong>
                         <p>La tua prenotazione è avvenuta con successo.</p>
                     </div>`;
@@ -182,6 +185,9 @@ function PrenotaUser(idCrossAttrazionePeriodo, indice) {
             else {
                 document.getElementById("PrenotaUserResult").innerHTML = `
                     <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <strong>Prenotazione fallita!</strong>
                         <p>Non ci sono abbastanza posti disponibili oppure hai scelto 0 posti!</p>
                     </div>`;
@@ -194,11 +200,12 @@ function PrenotaUser(idCrossAttrazionePeriodo, indice) {
             console.log("sono in error del js", error);
             document.getElementById("PrenotaUserResult").innerHTML = `
                     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                        <strong>Prenotazione fallita :(</strong>
-                        <p>Errore nella prenotazione</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                        <strong>Prenotazione fallita :(</strong>
+                        <p>Errore nella prenotazione</p>
+                        
                     </div>`;
             this.always();
         },
@@ -231,6 +238,9 @@ function ModificaPosti(idPrenotazione, indice) {
             if (response == "OK") {
                 document.getElementById("ModificaPostiResult").innerHTML = `
                     <div class="alert alert-success">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <strong>Buon viaggio!</strong>
                         <p>La tua modifica è avvenuta con successo.</p>
                     </div>`;
@@ -245,6 +255,9 @@ function ModificaPosti(idPrenotazione, indice) {
             else {
                 document.getElementById("ModificaPostiResult").innerHTML = `
                     <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <strong>Modifica fallita!</strong>
                         <p>Non ci sono abbastanza posti disponibili oppure hai scelto 0 posti!</p>
                     </div>`;
@@ -257,11 +270,12 @@ function ModificaPosti(idPrenotazione, indice) {
             console.log("sono in error del js", error);
             document.getElementById("ModificaUserResult").innerHTML = `
                     <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                        <strong>Modifica fallita :(</strong>
-                        <p>Errore nella modifica</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+                        <strong>Modifica fallita :(</strong>
+                        <p>Errore nella modifica</p>
+                       
                     </div>`;
             this.always();
         },
@@ -292,14 +306,12 @@ function CancellaPrenotazione(idPrenotazione) {
                 document.getElementById("ModificaPostiResult").innerHTML = `
                     <div class="alert alert-success">
                         <strong>Eliminazione avvenuta con successo!</strong>
-                        <p>Che peccato!</p>
                     </div>`;
 
 
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000)
-                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
 
             }
             else {
@@ -355,15 +367,12 @@ function CancellaCrossAttrazionePeriodo(idCross) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <strong>Eliminazione avvenuta con successo!</strong>
-                        <p>Che peccato!</p>
-                      
                     </div>`;
 
 
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000)
-                //window.setTimeout( window.location.replace('/Prenotazione/Prenotazioni') , 5000);
 
             }
             else {
@@ -388,7 +397,7 @@ function CancellaCrossAttrazionePeriodo(idCross) {
                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <strong>Cancellazione fallita :(</strong>
+                        <strong>Cancellazione fallita:(</strong>
                         <p>Qualcosa è andato storto</p>
                        
                     </div>`;

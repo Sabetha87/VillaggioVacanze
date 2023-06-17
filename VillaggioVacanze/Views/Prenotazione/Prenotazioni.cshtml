@@ -1,7 +1,12 @@
-﻿
-@{
-	ViewData["Title"] = "Prenotazioni";
+﻿@if (User.IsInRole("Admin"))
+{
+	ViewData["Title"] = "Prenotazioni degli utenti";
 }
+else
+{
+    ViewData["Title"] = "Le mie prenotazioni";
+}
+
 @using Microsoft.AspNetCore.Identity
 @using VillaggioVacanze.DB.Entities
 @using System.Collections.Generic;
@@ -17,83 +22,88 @@
 
 <div class="container-fluid">
 
-    <div class="row">
-<div class="col-1"></div>
-        <div class="col-10">
-<div id="ModificaPostiResult">
-    @*popolato da JavaScript*@
-</div>
+    <div class="row mr-5 ml-5">
 
-<div class="table-responsive text-nowrap">
-    <!--Table-->
-                <table id="dtBasicExample" class="table table-hover table-light">
+            <div id="ModificaPostiResult">
+                @*popolato da JavaScript*@
+            </div>
 
-        <!--Table head-->
-        <thead style="position: sticky;" bgcolor="#0C223F">
-            <tr>
-                <th>#</th>
-                @if (User.IsInRole("Admin"))
-                {
-                    <th class="th-sm">Cognome</th>
-                    <th class="th-sm">Nome</th>
-                    <th class="th-sm">Email</th>
-                }
-                <th class="th-sm">Viaggio</th>
-                <th class="th-sm">Da</th>
-                <th class="th-sm">A</th>
-                <th class="th-sm">Data della prenotazione</th>
-               
-                <th class="th-sm">Numero posti prenotati</th>
-                <th class="th-sm">Numero posti rimamenti</th>
-                <th class="th-sm">Prezzo unitario</th>
-                <th class="th-sm">Modifica numero posti </th>
-                <th> </th>
+            <div class="table-responsive text-nowrap">
+                <!--Table-->
+                 <table id="dtBasicExample" class="table table-hover table-bordered table-light">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                                        <th style="text-align:center; background-color:#ffd9b3">#</th>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                            <th style="text-align:center; background-color:#ffd9b3">Cognome</th>
+                                            <th style="text-align:center; background-color:#ffd9b3">Nome</th>
+                                            <th style="text-align:center; background-color:#ffd9b3">Email</th>
+                            }
+                                        <th style="text-align:center; background-color:#ffd9b3">Viaggio</th>
+                                        <th style="text-align:center; background-color:#ffd9b3">Da</th>
+                                        <th style="text-align:center; background-color:#ffd9b3">A</th>
+                                        <th style="text-align:center; background-color:#ffd9b3">Creato il</th>
+
+                                        <th style="text-align:center; background-color:#ffd9b3">Posti prenotati</th>
+                                        <th style="text-align:center; background-color:#ffd9b3">Posti rimamenti</th>
+                                        <th style="text-align:center; background-color:#ffd9b3">Prezzo unitario</th>
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <th style="text-align:center; background-color:#ffd9b3">Modifica numero posti </th>
+                        }
+                                        
+                                        <th style ="text-align:center; background-color:#ffd9b3"> </th>
              
-            </tr>
-        </thead>
+                        </tr>
+                    </thead>
 
-        <!--Table body-->
-        <tbody>
+                    <!--Table body-->
+                    <tbody class="text-center">
 
-            @for(int i =0; i < Model.Count; i++)
-            {
-                <tr>
-                    <th scope="row">@(i+1)</th>
-                    @if (User.IsInRole("Admin"))
-                    {
-                    <td>@(Model[i].IdUserNavigation.LastName)</td>
-                    <td>@(Model[i].IdUserNavigation.FirstName)</td>
-                    <td>@(Model[i].IdUserNavigation.Email)</td>
-                    }
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.IdAttrazioneNavigation.Titolo)</td>
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.fromData.Date.ToString("dd/MM/yyyy"))</td>
-                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.toData.Date.ToString("dd/MM/yyyy"))</td>
-                    <td>@(DateTime.Parse(Model[i].CreatedAt).ToString("dd/MM/yyyy"))</td>
-                    <td>@(Model[i].NumPostiPrenotati)</td>
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
-                    <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
-
-                    <td class="text-align:center">
-                        <input type="number" name="number" id="#@(i)numeroPostiModificati" style="width:10%;"/>
-                        <button type="button" class="btn btn-primary full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
-                            Modifica Posti
-                        </button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger full-width" onclick="CancellaPrenotazione('@(Model[i].Id)')">
-                            Cancella Prenotazione
-                        </button>
-                    </td>
-                </tr>
-            }
+                        @for(int i =0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <th scope="row">@(i+1)</th>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                <td>@(Model[i].IdUserNavigation.LastName)</td>
+                                <td>@(Model[i].IdUserNavigation.FirstName)</td>
+                                <td>@(Model[i].IdUserNavigation.Email)</td>
+                                }
+                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.IdAttrazioneNavigation.Titolo)</td>
+                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.fromData.Date.ToString("dd/MM/yyyy"))</td>
+                                            <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.toData.Date.ToString("dd/MM/yyyy"))</td>
+                                <td>@(DateTime.Parse(Model[i].CreatedAt).ToString("dd/MM/yyyy"))</td>
+                                <td>@(Model[i].NumPostiPrenotati)</td>
+                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.numPosti)</td>
+                                <td>@(Model[i].IdCrossAttrazionePeriodoNavigation.prezzo) €</td>
+                            @if (!User.IsInRole("Admin"))
+                            {
+                                <td class="text-align:center">
+                                    <input type="number" name="number" id="#@(i)numeroPostiModificati" style="width:30%;" />
+                                    <button type="button" class="btn btn-primary full-width" onclick="ModificaPosti('@(Model[i].Id)','@(i)')">
+                                        Modifica
+                                    </button>
+                                </td>
+                            }
+                           
+                            <td class="text-align:center">
+                                    <button type="button" class="btn btn-danger full-width" onclick="CancellaPrenotazione('@(Model[i].Id)')">
+                                        Elimina
+                                    </button>
+                                </td>
+                            </tr>
+                        }
             
 
-        </tbody>
+                    </tbody>
 
-    </table>
+                </table>
 
-</div>
-    </div>
-        <div class="col-1"></div>
+                </div>
+   
     </div>
 </div>

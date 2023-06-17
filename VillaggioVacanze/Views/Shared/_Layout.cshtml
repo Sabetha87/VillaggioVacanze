@@ -36,28 +36,36 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light" >
+      
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     @*Home*@
-                    <li class="nav-item">
-                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <li class="nav-item ">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <a class="nav-link text-white " asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">Viaggi disponibili</a>
+                            <a class="nav-link" asp-area="" asp-controller="Prenotazione" asp-action="PrenotaViaggi">Viaggi disponibili</a>
                         }
                     </li>
-                    <li class="nav-item">
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                            <a class="nav-link text-white " asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni</a>
-                    }
+                    <li class="nav-item ">
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link" asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Prenotazioni degli utenti</a>
+                        }
+
+                        @if (SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link" asp-area="" asp-controller="Prenotazione" asp-action="Prenotazioni">Le mie prenotazioni</a>
+                        }
+
                     </li>
                    
                 </ul>
@@ -200,6 +208,8 @@
 
             </div>
         </nav>
+
+
     </header>
 
 
@@ -211,17 +221,17 @@
 
 
 
-    <footer class="border-top footer text-muted">
+   @* <footer class="border-top footer text-light bg-dark">
         
         <section>
-        <a class="footerClassA pl-5" style="color:white;">
+        <a class="footerClassA pl-5" >
            
             &copy; 2023 - VillaggioVacanze -  All Rights Reserved. <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
         </a>
         </section>
         <section>
-            <a class="footerClassA" style="color:white;">Follow us </a>
+            <a class="footerClassA">Follow us </a>
             <a class="footerClassA material-symbols-outlined" href="https://www.google.com/maps">
                 
                     public
@@ -233,7 +243,24 @@
 
             <a class="pr-5"></a>
         </section>
-    </footer>
+    </footer>*@
+
+  
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="container">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+                <span class="text-muted">© 2021 Company, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <a class="footerClassA material-symbols-sharp" href="https://www.google.com/gmail/about/">
+            </ul>
+        </div>
+        </footer>
+
 
 
 

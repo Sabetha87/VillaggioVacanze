@@ -1,31 +1,44 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
+﻿
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    background-color: #1b6ec2;
+    border: 1px solid #1861ac;
+
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #f2f2f2;
+    padding: 0px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+
+
+.footerClassA {
+    text-decoration: none;
+    color: white;
+}
+
+footerClassA + footerClassA {
+    margin-left: 10px;
+}
+
+
 html {
   font-size: 14px;
 }
@@ -34,9 +47,7 @@ html {
     font-size: 16px;
   }
 }
-/*body {
-    background-color: #d4ebf2;
-}*/
+
 
 .border-top {
   border-top: 1px solid #e5e5e5;
@@ -61,17 +72,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
 
 
 .carousel-caption {
@@ -85,9 +85,7 @@ body {
     padding-left: 0px;
 }
 
-body {
-padding:0px;
-}
+
 
 
 .item {
@@ -103,20 +101,22 @@ padding:0px;
 
 .TitleCarousel {
     font-size: 70px;
-    font-family: 'Lucida Handwriting';
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black,  10px 10px 30px black, 20px 20px 30px black;
+    font-family: 'Segoe Print','Lucida Handwriting';
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 10px 10px 30px black, 20px 20px 30px black;
 }
 
 .SubTitleCarousel {
     font-size: 30px;
-    font-family: 'Lucida Handwriting';
+    font-family: 'Segoe Print','Lucida Handwriting';
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 10px 10px 30px black, 20px 20px 30px black;
 }
 
 /*Titoli sezioni*/
 
 .TitoliSezioni {
-    font-family: ' Brush Script MT';
+    /*   font-family: ' Brush Script MT';*/
+    font-family: 'Segoe Print', 'Lucida Handwriting';
+    font-size:30px;
     font-weight: 500;
 }
 
@@ -127,6 +127,7 @@ padding:0px;
     z-index: 1;
     overflow: hidden;
     text-align: center;
+    height:45px;
     
 }
 
@@ -154,20 +155,17 @@ padding:0px;
 .cardViaggi {
     border: 3px solid #0C223F;
     border-radius: 10px 10px 10px 10px;
+    font-family: 'Segoe Print', 'Lucida Handwriting';
+}
+
+.cardTitle {
+    font-family: 'Segoe Print', 'Lucida Handwriting';
 }
 
 .containerCards {
     margin-top: 10px;
 }
 
-
-/*.navbar {
-    background: #0C223F;
-}
-
-.footer {
-    background: #0C223F;
-}*/
 
 /*Card persone*/
 #cardPersona1 {
@@ -245,20 +243,6 @@ padding:0px;
 }
 
 
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footerClassA {
-    text-decoration: none;
-    color: white;
-}
-
-    footerClassA + footerClassA {
-        margin-left: 10px;
-    }
 
 
 .card:hover {

@@ -12,13 +12,7 @@
 
 <style>
 
-    td {
-        width: 10%;
-    }
-
-    th {
-        width: 10%;
-    }
+  
 
 </style>
 
@@ -33,42 +27,42 @@
             @*popolato da JavaScript*@
         </div>
 
-        <div class="table-responsive text-nowrap " style="overflow-y:auto; overflow-x:auto; height:600px; width:100%;">
+        <div class="table-responsive text-nowrap " >
                 <!--Table-->
-                <table id="dtBasicExample" class="table table-hover table-bordered table-danger text-center">
+            <table id="dtBasicExample" class="table table-hover table-bordered table-light" >
 
                     <!--Table head-->
-                    <thead>
-                        <tr>
-                            <th class="th-sm">#</th>
-                            <th class ="th-sm">Viaggio</th>
-                            <th class ="th-sm">Da</th>
-                            <th class ="th-sm">A</th>
-                            <th class ="th-sm">Posti disponibili</th>
-                            <th class ="th-sm">Attivo</th>
-                            <th class ="th-sm">Prezzo</th>
+                <thead >
+                    <tr >
+                            <th style="text-align:center; background-color:#98e698">#</th>
+                            <th style="text-align:center; background-color:#98e698" >Viaggio</th>
+                            <th style="text-align:center; background-color:#98e698" >Da</th>
+                            <th style="text-align:center; background-color:#98e698" >A</th>
+                            <th style="text-align:center; background-color:#98e698" >Posti disponibili</th>
+                            <th style="text-align:center; background-color:#98e698" >Attivo</th>
+                            <th style="text-align:center; background-color:#98e698" >Prezzo</th>
                 
                             @if (User.IsInRole("Admin"))
                             {
-                            <th class="th-sm">Posti prenotati</th>
+                            <th  style="text-align:center; background-color:#98e698"  >Posti prenotati</th>
                             }
                             else
                             {
-                            <th class="th-sm">Numero posti</th>
+                            <th style="text-align:center; background-color:#98e698">Numero posti</th>
                             }
-               
-                            <th> </th>
+
+                        <th style="text-align:center; background-color:#98e698"> </th>
                 
                         </tr>
                     </thead>
 
                     <!--Table body-->
-                    <tbody>
+                    <tbody class="text-center">
 
                         @for(int i =0; i < Model.Count; i++)
                         {
                             <tr>
-                                <th scope="row">@(i+1)</th>
+                                <td scope="row">@(i+1)</td>
                     
                                 <td>@(Model[i].IdAttrazioneNavigation.Titolo)</td>
                                             <td>@(DateTime.Parse(Model[i].fromData).ToString("dd/MM/yyyy"))</td>
@@ -78,13 +72,16 @@
                                 <td>
                                     @if((Model[i].attivo)== true)
                                         {
-                                            <span class="material-symbols-outlined" style="color:green">
-                                                event_available
-                                            </span>
+
+                                    <span class="material-symbols-outlined" style="color:#2eb82e; font-size:30px;">
+                                            event_available
+                                        </span>
+                                        
+                                        
                                         }
                                     else
                                     {
-                                        <span class="material-symbols-outlined" style="color:red">
+                                    <span class="material-symbols-outlined" style="color:#e60000;font-size:30px;">
                                             event_busy
                                         </span>
                                     }
@@ -103,14 +100,14 @@
                                     </td>
                         
                                 }
-                       
-                    
 
-                                <td>
+
+
+                            <td class="text-align:center">
                                     @if (User.IsInRole("Admin"))
                                     {
                             
-                                        <button type="button" class="float-right btn btn-primary full-width"
+                                        <button type="button" class="btn btn-primary full-width"
                                         onclick="CancellaCrossAttrazionePeriodo('@(Model[i].Id)')">
                                             Elimina
                                         </button>
@@ -118,7 +115,7 @@
                                     }
                                     else
                                     {
-                                        <button type="button" class="float-right btn btn-primary full-width" 
+                                        <button type="button" class="btn btn-primary full-width" 
                                         onclick="PrenotaUser('@(Model[i].Id)','@(i)')">
                                             Prenota
                                         </button>
