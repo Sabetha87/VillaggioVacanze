@@ -181,14 +181,14 @@
                 @*Nome utente loggato a destra, cliccabile per UserPage*@
                 @if (SignInManager.IsSignedIn(User) && !User.IsInRole("Admin"))
                 {
-                    <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="UserPage">@UserManager.GetUserName(User)</a>
+                    <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="">@UserManager.GetUserName(User)</a>
 
                 }
 
                 @*Admin loggato a destra, cliccabile per AdminPage*@
                 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                 {
-                    <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="AdminPage">@UserManager.GetUserName(User)</a>
+                    <a class="nav-link text-primary" asp-area="" asp-controller="" asp-action="">@UserManager.GetUserName(User)</a>
 
                 }
 
