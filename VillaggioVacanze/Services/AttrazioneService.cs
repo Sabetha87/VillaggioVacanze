@@ -128,13 +128,14 @@ namespace VillaggioVacanze.Services
             Prenotazione entityPrenotazione = this.DBContext.Prenotazioni.Where(c => c.Id == Guid.Parse(prenotazioneModel.Id)).FirstOrDefault();
             CrossAttrazionePeriodo entityCross = this.DBContext.CrossAttrazioniPeriodi.Where(c => c.Id == entityPrenotazione.IdCrossAttrazionePeriodo).FirstOrDefault();
 
-            if (entityPrenotazione == null || entityCross.numPosti < numPostiScelti || numPostiScelti == 0)
+            if (entityPrenotazione == null || (entityPrenotazione.NumPostiPrenotati+entityCross.numPosti)<numPostiScelti || numPostiScelti == 0)
             {
                 return "KO";
             }
 
+            entityCross.numPosti = (entityPrenotazione.NumPostiPrenotati+entityCross.numPosti) - numPostiScelti;
             entityPrenotazione.NumPostiPrenotati = numPostiScelti;
-            entityCross.numPosti = entityCross.numPosti - numPostiScelti;  
+            entityPrenotazione.UpdatedAt = DateTime.Now;
 
             this.DBContext.Prenotazioni.Update(entityPrenotazione);
             this.DBContext.CrossAttrazioniPeriodi.Update(entityCross);
