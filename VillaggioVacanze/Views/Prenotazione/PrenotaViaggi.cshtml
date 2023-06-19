@@ -34,24 +34,24 @@
                     <!--Table head-->
                 <thead >
                     <tr >
-                            <th style="text-align:center; background-color:#98e698">#</th>
-                            <th style="text-align:center; background-color:#98e698" >Viaggio</th>
-                            <th style="text-align:center; background-color:#98e698" >Da</th>
-                            <th style="text-align:center; background-color:#98e698" >A</th>
-                            <th style="text-align:center; background-color:#98e698" >Posti disponibili</th>
-                            <th style="text-align:center; background-color:#98e698" >Attivo</th>
-                            <th style="text-align:center; background-color:#98e698" >Prezzo</th>
+                            <th class="thCustom1">#</th>
+                            <th class="thCustom1">Viaggio</th>
+                            <th class="thCustom1">Da</th>
+                            <th class="thCustom1">A</th>
+                            <th class="thCustom1">Posti disponibili</th>
+                            <th class="thCustom1">Attivo</th>
+                            <th class="thCustom1">Prezzo</th>
                 
                             @if (User.IsInRole("Admin"))
                             {
-                            <th  style="text-align:center; background-color:#98e698"  >Posti prenotati</th>
+                            <th class="thCustom1">Posti prenotati</th>
                             }
                             else
                             {
-                            <th style="text-align:center; background-color:#98e698">Numero posti</th>
+                            <th class="thCustom1" >Numero posti</th>
                             }
 
-                        <th style="text-align:center; background-color:#98e698"> </th>
+                        <th class="thCustom1"> </th>
                 
                         </tr>
                     </thead>

@@ -35,27 +35,27 @@ else
                     <!--Table head-->
                     <thead>
                         <tr>
-                                        <th style="text-align:center; background-color:#ffd9b3">#</th>
+                        <th class="thCustom2">#</th>
                             @if (User.IsInRole("Admin"))
                             {
-                                            <th style="text-align:center; background-color:#ffd9b3">Cognome</th>
-                                            <th style="text-align:center; background-color:#ffd9b3">Nome</th>
-                                            <th style="text-align:center; background-color:#ffd9b3">Email</th>
-                            }
-                                        <th style="text-align:center; background-color:#ffd9b3">Viaggio</th>
-                                        <th style="text-align:center; background-color:#ffd9b3">Da</th>
-                                        <th style="text-align:center; background-color:#ffd9b3">A</th>
-                                        <th style="text-align:center; background-color:#ffd9b3">Creato il</th>
-
-                                        <th style="text-align:center; background-color:#ffd9b3">Posti prenotati</th>
-                                        <th style="text-align:center; background-color:#ffd9b3">Posti rimamenti</th>
-                                        <th style="text-align:center; background-color:#ffd9b3">Prezzo unitario</th>
+                                        <th class="thCustom2">Cognome</th>
+                                        <th class="thCustom2">Nome</th>
+                                        <th class="thCustom2">Email</th>
+                            }            
+                                        <th class="thCustom2">Viaggio</th>
+                                        <th class="thCustom2">Da</th>
+                                        <th class="thCustom2">A</th>
+                                        <th class="thCustom2">Creato il</th>
+                                           
+                                        <th class="thCustom2">Posti prenotati</th>
+                                        <th class="thCustom2">Posti rimamenti</th>
+                                        <th class="thCustom2">Prezzo unitario</th>
                         @if (!User.IsInRole("Admin"))
                         {
-                            <th style="text-align:center; background-color:#ffd9b3">Modifica numero posti </th>
+                            <th class="thCustom2">Modifica numero posti </th>
                         }
-                                        
-                                        <th style ="text-align:center; background-color:#ffd9b3"> </th>
+
+                        <th class="thCustom2"> </th>
              
                         </tr>
                     </thead>
