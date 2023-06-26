@@ -1,4 +1,4 @@
-
+--La password dell'Admin è Password01!
 USE [VillaggioVacanze]
 GO
 /****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 20/06/2023 15:21:30 ******/
